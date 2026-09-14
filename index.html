@@ -2,3091 +2,3406 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <title>Mis Quince — Geraldine Romero</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+<title>Mis Quince — Geraldine Romero</title>
 
-  <!-- LINK PREVIEW -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <meta
-    name="description"
-    content="Mis Quince de Geraldine Romero · 27 de noviembre de 2026">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
 
-  <meta
-    property="og:title"
-    content="Mis Quince — Geraldine Romero">
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+  rel="stylesheet">
 
-  <meta
-    property="og:description"
-    content="27 de noviembre de 2026 · Acompáñanos a celebrar los XV de Geraldine">
+<style>
+
+:root{
+  --tan:#c99d67;
+  --tan-dark:#986436;
+  --cream:#ead1ad;
+  --light:#fffaf3;
+  --brown:#4a230f;
+  --gold:#b77b3b;
+  --dark:#160a04;
+}
 
-  <meta
-    property="og:type"
-    content="website">
+*{
+  box-sizing:border-box;
+}
 
-  <meta
-    property="og:url"
-    content="https://melilara1105-hub.github.io/GeraXV/">
+html,
+body{
+  margin:0;
+  padding:0;
+}
 
-  <meta
-    property="og:image"
-    content="https://melilara1105-hub.github.io/GeraXV/invite-preview-1200x630.PNG">
+html{
+  scroll-behavior:auto;
+}
 
-  <meta
-    property="og:image:secure_url"
-    content="https://melilara1105-hub.github.io/GeraXV/invite-preview-1200x630.PNG">
+body{
+  font-family:"Cormorant Garamond",serif;
+  background:var(--cream);
+  color:var(--brown);
+  overflow-x:hidden;
+}
 
-  <meta
-    property="og:image:type"
-    content="image/png">
+img{
+  display:block;
+  max-width:100%;
+}
 
-  <meta
-    property="og:image:width"
-    content="1200">
+button,
+a{
+  font:inherit;
+  -webkit-tap-highlight-color:transparent;
+}
 
-  <meta
-    property="og:image:height"
-    content="630">
+button{
+  cursor:pointer;
+}
 
-  <meta
-    name="twitter:card"
-    content="summary_large_image">
+.script{
+  font-family:"Great Vibes",cursive;
+}
 
-  <meta
-    name="twitter:image"
-    content="https://melilara1105-hub.github.io/GeraXV/invite-preview-1200x630.PNG">
 
+/* =========================================
+   IMPORTANT: SEPARATE PAGES
+========================================= */
 
-  <!-- FONTS -->
+.view{
+  display:none !important;
+}
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com">
+.view.active{
+  display:block !important;
+}
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap"
-    rel="stylesheet">
+/* =========================================
+   OPENING SCREEN
+========================================= */
 
+#opening{
+  position:fixed;
+  inset:0;
 
-  <style>
+  z-index:9999;
 
-    :root{
-      --cream:#efd6ad;
-      --cream2:#f7ead2;
-      --paper:#fffaf2;
-      --tan:#c99b63;
-      --gold:#b1844d;
-      --brown:#54280f;
-      --dark:#180b05;
-      --soft:#b8a07b;
-    }
+  min-height:100svh;
 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+  padding:25px;
 
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255,255,255,.65),
+      transparent 30%
+    ),
+    #ecd6b8;
 
-    html{
-      scroll-behavior:auto;
-    }
+  transition:
+    opacity .9s ease,
+    visibility .9s ease;
+}
 
+#opening.gone{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
 
-    body{
-      margin:0;
-      background:var(--cream);
-      color:var(--brown);
-      font-family:"Cormorant Garamond",serif;
-      overflow-x:hidden;
-    }
+.opening-small{
+  margin-bottom:18px;
 
+  font-size:13px;
+  letter-spacing:.24em;
+}
 
-    img{
-      display:block;
-      width:100%;
-    }
+.opening-decor{
+  margin-bottom:22px;
 
+  font-size:23px;
+  letter-spacing:10px;
+}
 
-    button,
-    a{
-      font-family:inherit;
-    }
 
+/* =========================================
+   ENVELOPE
+========================================= */
 
+.envelope{
+  position:relative;
 
-    /* =========================
-       OPENING ENVELOPE
-    ========================= */
+  width:min(86vw,370px);
 
+  aspect-ratio:1.53 / 1;
 
-    #opening{
-      position:fixed;
-      inset:0;
-      z-index:9999;
+  perspective:1200px;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  filter:
+    drop-shadow(
+      0 20px 24px
+      rgba(79,42,19,.22)
+    );
+}
 
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          #f9ebd0,
-          var(--cream)
-        );
+.envelope-back{
+  position:absolute;
+  inset:0;
 
-      transition:
-        opacity .8s ease,
-        visibility .8s ease;
-    }
+  background:#c99561;
 
+  border-radius:8px;
 
-    #opening.gone{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
+  z-index:1;
+}
 
+.invite-card{
+  position:absolute;
 
-    .opening-inner{
-      width:min(88vw,430px);
-      text-align:center;
-    }
+  left:7%;
+  right:7%;
+  bottom:7%;
 
+  height:82%;
 
-    .opening-name{
-      font-family:"Great Vibes",cursive;
-      font-size:59px;
-      margin-bottom:8px;
-    }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 
+  text-align:center;
 
-    .opening-small{
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:15px;
-      margin-bottom:35px;
-    }
+  background:
+    radial-gradient(
+      circle,
+      rgba(173,118,61,.12) 2px,
+      transparent 3px
+    ),
+    var(--light);
 
+  background-size:26px 26px;
 
-    .envelope{
-      width:100%;
-      aspect-ratio:1.5;
+  border:
+    1px solid
+    rgba(74,33,13,.2);
 
-      position:relative;
-      cursor:pointer;
-      perspective:1000px;
+  z-index:2;
 
-      filter:
-        drop-shadow(
-          0 16px 18px
-          rgba(60,27,8,.22)
-        );
-    }
+  transition:
+    transform 1.3s
+    cubic-bezier(.2,.75,.2,1);
+}
 
+.invite-card::before{
+  content:"✿  ❦  ✿";
 
-    .envelope-body{
-      position:absolute;
-      inset:0;
+  margin-bottom:10px;
 
-      overflow:hidden;
+  letter-spacing:6px;
+}
 
-      background:#c99c65;
+.invite-card-small{
+  font-size:12px;
+  letter-spacing:.2em;
+}
 
-      border:
-        1px solid
-        rgba(82,39,15,.18);
+.invite-card-title{
+  margin-top:6px;
+  font-size:38px;
+}
 
-      border-radius:4px;
-    }
+.front-left,
+.front-right,
+.front-bottom,
+.flap{
+  position:absolute;
+}
 
+.front-left{
+  left:0;
+  bottom:0;
 
-    .envelope-body::before{
-      content:"";
-      position:absolute;
+  width:0;
+  height:0;
 
-      left:-18%;
-      bottom:-38%;
+  border-top:
+    min(33vw,140px)
+    solid transparent;
 
-      width:72%;
-      height:130%;
+  border-bottom:
+    min(33vw,140px)
+    solid #c18d59;
 
-      transform:rotate(36deg);
+  border-right:
+    min(43vw,185px)
+    solid transparent;
 
-      background:#dab27d;
-    }
+  z-index:4;
+}
 
+.front-right{
+  right:0;
+  bottom:0;
 
-    .envelope-body::after{
-      content:"";
-      position:absolute;
+  width:0;
+  height:0;
 
-      right:-18%;
-      bottom:-38%;
+  border-top:
+    min(33vw,140px)
+    solid transparent;
 
-      width:72%;
-      height:130%;
+  border-bottom:
+    min(33vw,140px)
+    solid #b97f4c;
 
-      transform:rotate(-36deg);
+  border-left:
+    min(43vw,185px)
+    solid transparent;
 
-      background:#dab27d;
-    }
+  z-index:4;
+}
 
+.front-bottom{
+  left:0;
+  bottom:0;
 
-    .flap{
-      position:absolute;
+  width:0;
+  height:0;
 
-      top:0;
-      left:0;
+  border-left:
+    min(43vw,185px)
+    solid transparent;
 
-      width:100%;
-      height:64%;
+  border-right:
+    min(43vw,185px)
+    solid transparent;
 
-      background:#b98954;
+  border-bottom:
+    min(34vw,145px)
+    solid #d4a570;
 
-      clip-path:
-        polygon(
-          0 0,
-          100% 0,
-          50% 100%
-        );
+  z-index:5;
+}
 
-      transform-origin:top;
+.flap{
+  left:0;
+  top:0;
 
-      transition:
-        transform 1s ease;
+  width:0;
+  height:0;
 
-      z-index:5;
-    }
+  border-left:
+    min(43vw,185px)
+    solid transparent;
 
+  border-right:
+    min(43vw,185px)
+    solid transparent;
 
-    .envelope.open .flap{
-      transform:rotateX(180deg);
-    }
+  border-top:
+    min(34vw,145px)
+    solid #ddb681;
 
+  transform-origin:
+    top center;
 
-    .wax{
-      position:absolute;
+  transition:
+    transform .8s ease;
 
-      left:50%;
-      top:50%;
+  z-index:6;
+}
 
-      transform:
-        translate(-50%,-50%);
+.seal{
+  position:absolute;
 
-      width:82px;
-      height:82px;
+  left:50%;
+  top:42%;
 
-      border-radius:50%;
+  transform:
+    translate(-50%,-50%);
 
-      z-index:8;
+  width:62px;
+  height:62px;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  display:grid;
+  place-items:center;
 
-      background:
-        radial-gradient(
-          circle at 35% 28%,
-          #8a4c27,
-          #56240f 67%,
-          #3b1408
-        );
+  border-radius:50%;
 
-      color:#ecd0a6;
+  background:#71391b;
+  color:#f5dfbd;
 
-      font-size:34px;
+  border:
+    3px double
+    rgba(255,236,205,.7);
 
-      border:
-        3px double
-        rgba(238,204,160,.5);
+  font-size:23px;
+  font-weight:700;
 
-      transition:
-        opacity .3s ease;
-    }
+  box-shadow:
+    0 4px 10px
+    rgba(0,0,0,.23);
 
+  z-index:8;
 
-    .envelope.open .wax{
-      opacity:0;
-    }
+  transition:.35s ease;
+}
 
+#openButton{
+  position:absolute;
+  inset:-15px;
 
-    .tap{
-      margin-top:28px;
-      font-size:21px;
-    }
+  border:0;
 
+  background:transparent;
 
+  z-index:50;
+}
 
-    /* =========================
-       APP
-    ========================= */
+.envelope.open .flap{
+  transform:rotateX(180deg);
+  z-index:1;
+}
 
+.envelope.open .seal{
+  opacity:0;
 
-    #app{
-      opacity:0;
-      transition:opacity .7s ease;
-    }
+  transform:
+    translate(-50%,-50%)
+    scale(.5);
+}
 
+.envelope.open .invite-card{
+  transform:
+    translateY(-65%);
+}
 
-    #app.ready{
-      opacity:1;
-    }
+.tap-text{
+  margin-top:27px;
 
+  font-size:14px;
+  letter-spacing:.17em;
+}
 
 
-    /* =========================
-       HEADER
-    ========================= */
+/* =========================================
+   WEBSITE
+========================================= */
 
+#app{
+  width:min(100%,760px);
 
-    .header{
-      position:sticky;
-      top:0;
-      z-index:700;
+  min-height:100vh;
 
-      height:128px;
+  margin:auto;
 
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+  background:var(--light);
 
-      padding:
-        0 30px;
+  opacity:0;
 
-      background:
-        rgba(255,252,247,.97);
+  transition:
+    opacity 1s ease;
+}
 
-      border-bottom:
-        1px solid
-        rgba(83,40,15,.08);
-    }
+#app.ready{
+  opacity:1;
+}
 
 
-    .header-name{
-      font-family:"Great Vibes",cursive;
-      font-size:27px;
-    }
+/* =========================================
+   TOP BAR
+========================================= */
 
+.topbar{
+  position:sticky;
 
-    .menu-button{
-      border:0;
-      background:transparent;
+  top:0;
 
-      width:48px;
-      height:48px;
+  z-index:3000;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+  width:100%;
+  height:68px;
 
-      gap:7px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
 
-      cursor:pointer;
-    }
+  padding:0 20px;
 
+  background:
+    rgba(255,250,243,.96);
 
-    .menu-button span{
-      width:38px;
-      height:3px;
+  backdrop-filter:
+    blur(9px);
 
-      background:var(--brown);
+  border-bottom:
+    1px solid
+    rgba(73,34,14,.08);
+}
 
-      border-radius:5px;
-    }
+.menu-button{
+  width:48px;
+  height:48px;
 
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 
+  gap:6px;
 
-    /* =========================
-       MENU
-    ========================= */
+  border:0;
 
+  background:transparent;
+}
 
-    .menu-overlay{
-      position:fixed;
-      inset:0;
+.menu-button span{
+  width:31px;
+  height:2px;
 
-      display:none;
+  border-radius:10px;
 
-      background:
-        rgba(0,0,0,.3);
+  background:var(--brown);
+}
 
-      z-index:800;
-    }
 
+/* =========================================
+   MENU
+========================================= */
 
-    .menu-overlay.show{
-      display:block;
-    }
+#menuShade{
+  position:fixed;
+  inset:0;
 
+  z-index:4998;
 
-    .side-menu{
-      position:fixed;
+  background:
+    rgba(0,0,0,.28);
 
-      right:-100%;
-      top:0;
+  opacity:0;
 
-      width:min(82vw,350px);
-      height:100vh;
+  pointer-events:none;
 
-      z-index:900;
+  transition:.35s ease;
+}
 
-      background:#fffaf2;
+#menuShade.show{
+  opacity:1;
 
-      padding:
-        95px 30px 30px;
+  pointer-events:auto;
+}
 
-      transition:
-        right .35s ease;
+#sideMenu{
+  position:fixed;
 
-      box-shadow:
-        -15px 0 35px
-        rgba(0,0,0,.12);
-    }
+  top:0;
+  right:0;
 
+  width:min(82vw,360px);
+  height:100svh;
 
-    .side-menu.open{
-      right:0;
-    }
+  z-index:4999;
 
+  padding:
+    max(25px,env(safe-area-inset-top))
+    32px
+    40px;
 
-    .close-menu{
-      position:absolute;
+  background:
+    var(--light);
 
-      right:18px;
-      top:18px;
+  transform:
+    translateX(105%);
 
-      border:0;
-      background:none;
+  transition:
+    transform .42s
+    cubic-bezier(.2,.8,.2,1);
 
-      color:var(--brown);
+  box-shadow:
+    -15px 0 35px
+    rgba(0,0,0,.12);
+}
 
-      font-size:39px;
+#sideMenu.open{
+  transform:
+    translateX(0);
+}
 
-      cursor:pointer;
-    }
+.close-menu{
+  display:block;
 
+  width:48px;
+  height:48px;
 
-    .menu-link{
-      width:100%;
+  margin-left:auto;
+  margin-bottom:33px;
 
-      display:block;
+  border:0;
 
-      border:0;
-      border-bottom:
-        1px solid
-        rgba(83,40,15,.15);
+  background:transparent;
 
-      background:none;
+  color:var(--brown);
 
-      text-align:left;
+  font-size:45px;
+  line-height:1;
+}
 
-      padding:
-        15px 0;
+.menu-decoration{
+  margin-bottom:30px;
 
-      color:var(--brown);
+  font-size:19px;
+  letter-spacing:8px;
+}
 
-      font-size:27px;
+.menu-link{
+  display:block;
 
-      cursor:pointer;
-    }
+  width:100%;
 
+  padding:14px 0;
 
-    .menu-link.active{
-      font-weight:600;
-    }
+  border:0;
 
+  background:transparent;
 
+  text-align:left;
 
-    /* =========================
-       MUSIC
-    ========================= */
+  color:#7b6a5d;
 
+  font-size:31px;
+}
 
-    .music{
-      position:fixed;
+.menu-link.active{
+  color:var(--brown);
 
-      right:26px;
-      bottom:36px;
+  font-weight:600;
+}
 
-      z-index:750;
+.menu-bottom{
+  position:absolute;
 
-      display:none;
+  left:32px;
+  right:32px;
+  bottom:40px;
 
-      width:70px;
-      height:70px;
+  padding-top:20px;
 
-      border-radius:50%;
+  border-top:
+    1px solid
+    rgba(73,34,14,.15);
 
-      border:
-        1px solid
-        rgba(255,255,255,.7);
+  text-align:center;
 
-      background:
-        rgba(83,40,15,.94);
+  font-size:15px;
+}
 
-      color:white;
 
-      font-size:29px;
+/* =========================================
+   PAPEL PICADO
+========================================= */
 
-      align-items:center;
-      justify-content:center;
+.papel{
+  height:79px;
 
-      box-shadow:
-        0 6px 15px
-        rgba(0,0,0,.12);
+  display:grid;
 
-      cursor:pointer;
-    }
+  grid-template-columns:
+    repeat(5,1fr);
 
+  overflow:hidden;
 
-    .music.show{
-      display:flex;
-    }
+  background:var(--cream);
+}
 
+.papel-piece{
+  position:relative;
 
+  height:69px;
 
-    /* =========================
-       VIEW SYSTEM
-    ========================= */
+  margin-right:2px;
 
+  background:
+    var(--brown);
 
-    .view{
-      display:none !important;
-    }
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 82%,
+      88% 82%,
+      82% 100%,
+      71% 82%,
+      60% 82%,
+      50% 100%,
+      40% 82%,
+      29% 82%,
+      18% 100%,
+      12% 82%,
+      0 82%
+    );
+}
 
+.papel-piece:nth-child(even){
+  background:#f8ead4;
+}
 
-    .view.active{
-      display:block !important;
-    }
+.papel-piece::before{
+  content:"✿";
 
+  position:absolute;
 
+  left:50%;
+  top:8px;
 
-    /* =========================
-       SIDE FLOWERS
-    ========================= */
+  transform:
+    translateX(-50%);
 
+  font-size:24px;
 
-    .decorated{
-      position:relative;
-    }
+  color:var(--tan);
+}
 
+.papel-piece::after{
+  content:"◦ ✦ ◦";
 
-    .side-flower{
-      position:absolute;
+  position:absolute;
 
-      color:
-        rgba(84,40,15,.35);
+  left:50%;
+  bottom:18px;
 
-      font-size:38px;
-    }
+  transform:
+    translateX(-50%);
 
+  white-space:nowrap;
 
-    .side-flower.left{
-      left:18px;
-    }
+  font-size:12px;
+  letter-spacing:4px;
 
+  color:var(--tan);
+}
 
-    .side-flower.right{
-      right:18px;
-    }
+.papel-piece:nth-child(even)::before,
+.papel-piece:nth-child(even)::after{
+  color:var(--brown);
+}
 
 
-    .side-flower.one{
-      top:80px;
-    }
+/* =========================================
+   GENERAL DECORATION
+========================================= */
 
+.section{
+  position:relative;
 
-    .side-flower.two{
-      bottom:110px;
-    }
+  padding:
+    72px 23px;
 
+  text-align:center;
 
+  overflow:hidden;
+}
 
-    /* =========================
-       PAPEL PICADO
-    ========================= */
+.tan{
+  color:var(--light);
 
+  background-color:
+    var(--tan);
 
-    .papel-picado{
-      width:100%;
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,.13)
+      0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 0 100%,
+      rgba(255,255,255,.08)
+      0 9px,
+      transparent 10px
+    );
 
-      display:grid;
-      grid-template-columns:
-        repeat(5,1fr);
+  background-size:
+    52px 52px;
+}
 
-      background:var(--cream);
-    }
+.cream{
+  background-color:
+    var(--cream);
 
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(102,58,22,.09)
+      0 3px,
+      transparent 4px
+    );
 
-    .flag{
-      height:123px;
+  background-size:
+    55px 55px;
+}
 
-      position:relative;
+.white{
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(107,63,28,.025) 0,
+      rgba(107,63,28,.025) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    var(--light);
+}
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+.side-vine{
+  position:absolute;
 
-      font-size:32px;
-    }
+  top:20px;
+  bottom:20px;
 
+  width:30px;
 
-    .flag:nth-child(odd){
-      background:var(--brown);
-      color:#d9ad73;
-    }
+  overflow:hidden;
 
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
 
-    .flag:nth-child(even){
-      background:#fff1d6;
-      color:var(--brown);
-    }
+  font-size:28px;
 
+  opacity:.35;
+}
 
-    .flag::after{
-      content:"";
+.side-vine.left{
+  left:5px;
+}
 
-      position:absolute;
+.side-vine.right{
+  right:5px;
+}
 
-      bottom:-20px;
-      left:0;
+.side-vine.right span{
+  transform:
+    scaleX(-1);
+}
 
-      width:100%;
-      height:22px;
+.flowers{
+  margin:
+    18px 0;
 
-      background:inherit;
+  font-size:25px;
+  letter-spacing:8px;
+}
 
-      clip-path:
-        polygon(
-          0 0,
-          15% 0,
-          25% 100%,
-          35% 0,
-          50% 0,
-          60% 100%,
-          70% 0,
-          85% 0,
-          100% 100%,
-          100% 0
-        );
-    }
+.large-flowers{
+  margin:
+    25px 0;
 
+  font-size:38px;
+  letter-spacing:12px;
+}
 
+.divider{
+  display:flex;
+  align-items:center;
 
-    /* =========================
-       HERO
-    ========================= */
+  gap:12px;
 
+  max-width:240px;
 
-    .hero{
-      min-height:
-        calc(100svh - 128px);
+  margin:
+    24px auto;
+}
 
-      position:relative;
+.divider::before,
+.divider::after{
+  content:"";
 
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
+  flex:1;
 
-      text-align:center;
+  height:1px;
 
-      padding:
-        45px 28px 72px;
+  background:
+    currentColor;
 
-      color:white;
+  opacity:.5;
+}
 
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,.03),
-          rgba(0,0,0,.08) 45%,
-          rgba(0,0,0,.64)
-        ),
-        url("geraldine-portrait.jpg")
-        center 32% / cover
-        no-repeat;
-    }
 
+/* =========================================
+   HERO
+========================================= */
 
-    .hero::before{
-      content:"";
+.hero-frame{
+  position:relative;
 
-      position:absolute;
+  width:min(92%,650px);
 
-      inset:25px 20px;
+  min-height:620px;
 
-      border:
-        1px solid
-        rgba(255,245,225,.8);
-    }
+  margin:auto;
 
+  padding:
+    68px 27px 46px;
 
-    .hero-content{
-      position:relative;
-      z-index:2;
+  border:
+    4px solid
+    currentColor;
 
-      text-shadow:
-        0 3px 8px
-        rgba(0,0,0,.65);
-    }
+  border-bottom:0;
 
+  border-radius:
+    48% 48% 0 0
+    /
+    18% 18% 0 0;
+}
 
-    .hero-small{
-      font-size:18px;
-      letter-spacing:.25em;
-      text-transform:uppercase;
-    }
+.hero-frame::before{
+  content:"";
 
+  position:absolute;
 
-    .hero-title{
-      font-family:"Great Vibes",cursive;
-      font-size:65px;
-      line-height:.95;
-    }
+  inset:
+    11px 11px 0;
 
+  border:
+    1px solid
+    currentColor;
 
-    .hero-name{
-      font-size:35px;
-      font-weight:600;
-      margin-top:9px;
-    }
+  border-bottom:0;
 
+  border-radius:
+    48% 48% 0 0
+    /
+    18% 18% 0 0;
 
-    .flowers-line{
-      margin-top:12px;
+  opacity:.55;
+}
 
-      font-size:26px;
+.hero-title{
+  margin:
+    15px 0 26px;
 
-      letter-spacing:12px;
-    }
+  font-size:61px;
+  line-height:1;
+}
 
+.hero-copy{
+  max-width:530px;
 
+  margin:auto;
 
-    /* =========================
-       GENERAL
-    ========================= */
+  font-size:20px;
+  line-height:1.45;
+}
 
+.quince-title{
+  margin:
+    32px 0 15px;
 
-    .section{
-      text-align:center;
+  font-size:76px;
+  line-height:.9;
+}
 
-      padding:
-        86px 52px;
 
-      background:var(--cream);
-    }
+/* =========================================
+   PHOTOS
+========================================= */
 
+.circle-wrap{
+  position:relative;
 
-    .script{
-      font-family:"Great Vibes",cursive;
+  width:
+    min(73vw,370px);
 
-      font-size:61px;
+  margin:auto;
+}
 
-      line-height:1.15;
-    }
+.circle-photo{
+  width:100%;
 
+  aspect-ratio:1;
 
-    .small-caps{
-      font-size:16px;
+  object-fit:cover;
 
-      letter-spacing:.22em;
+  border-radius:50%;
 
-      text-transform:uppercase;
-    }
+  border:
+    9px solid
+    rgba(181,121,58,.27);
 
+  outline:
+    2px solid
+    rgba(73,34,14,.14);
+}
 
-    .body-text{
-      max-width:560px;
+.circle-wrap::before{
+  content:"✿ ❦";
 
-      margin:
-        25px auto 0;
+  position:absolute;
 
-      font-size:25px;
+  top:-26px;
+  left:-20px;
 
-      line-height:1.45;
-    }
+  font-size:39px;
 
+  transform:
+    rotate(-25deg);
+}
 
-    .ornament{
-      margin:
-        32px auto;
+.circle-wrap::after{
+  content:"❦ ✿";
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  position:absolute;
 
-      gap:28px;
-    }
+  bottom:-20px;
+  right:-25px;
 
+  font-size:39px;
 
-    .ornament::before,
-    .ornament::after{
-      content:"";
+  transform:
+    rotate(-25deg);
+}
 
-      display:block;
+.person-name{
+  margin:
+    27px 0 5px;
 
-      width:150px;
-      max-width:29vw;
+  font-size:55px;
+}
 
-      height:1px;
+.arch-photo{
+  width:
+    min(80vw,430px);
 
-      background:
-        rgba(84,40,15,.55);
-    }
+  aspect-ratio:4/5;
 
+  object-fit:cover;
 
-    .ornament span{
-      font-size:24px;
-    }
+  margin:auto;
 
+  border:
+    9px solid
+    rgba(255,255,255,.95);
 
+  outline:
+    2px solid
+    rgba(255,255,255,.5);
 
-    /* =========================
-       DATE
-    ========================= */
+  border-radius:
+    48% 48% 0 0
+    /
+    18% 18% 0 0;
+}
 
 
-    .date-number{
-      font-size:95px;
-      line-height:1;
-    }
+/* =========================================
+   DATE
+========================================= */
 
+.date-card{
+  position:relative;
 
-    .date-month{
-      font-size:34px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-    }
+  width:min(94%,640px);
 
+  margin:auto;
 
-    .date-year{
-      margin-top:4px;
-      font-size:25px;
-    }
+  padding:
+    65px 24px 48px;
 
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.14)
+      3px,
+      transparent 4px
+    ),
+    var(--tan);
 
-    .date-time{
-      margin-top:25px;
-      font-size:27px;
-    }
+  background-size:
+    38px 38px;
 
+  border-radius:
+    48% 48% 0 0
+    /
+    16% 16% 0 0;
+}
 
+.date-card::before{
+  content:"";
 
-    /* =========================
-       LOCATION
-    ========================= */
+  position:absolute;
 
+  inset:12px;
 
-    .location{
-      background:#fff8eb;
-    }
+  border:
+    1px solid
+    rgba(255,255,255,.45);
 
+  border-radius:
+    48% 48% 0 0
+    /
+    16% 16% 0 0;
+}
 
-    .location-name{
-      margin-top:13px;
+.month{
+  font-size:30px;
 
-      font-size:38px;
-      font-weight:600;
-    }
+  font-weight:700;
 
+  letter-spacing:.09em;
+}
 
-    .address{
-      margin-top:15px;
+.date-row{
+  display:grid;
 
-      font-size:23px;
-      line-height:1.4;
-    }
+  grid-template-columns:
+    1fr auto 1fr;
 
+  align-items:center;
 
-    .outline-button{
-      display:inline-block;
+  gap:14px;
 
-      margin-top:30px;
+  margin:
+    15px 0;
+}
 
-      padding:
-        14px 42px;
+.date-side{
+  padding:
+    7px 0;
 
-      background:
-        rgba(255,250,240,.35);
+  border-top:
+    2px solid white;
 
-      border:
-        3px solid
-        var(--brown);
+  border-bottom:
+    2px solid white;
 
-      border-radius:999px;
+  font-size:21px;
+  font-weight:700;
+}
 
-      color:var(--brown);
+.date-number{
+  font-size:78px;
 
-      text-decoration:none;
+  line-height:1;
 
-      font-size:24px;
-      font-weight:600;
+  font-weight:700;
+}
 
-      cursor:pointer;
-    }
+.date-time{
+  font-size:29px;
 
+  font-weight:700;
+}
 
 
-    /* =========================
-       ARCH PHOTO
-    ========================= */
+/* =========================================
+   COUNTDOWN
+========================================= */
 
+.count-title{
+  margin:
+    22px 0;
 
-    .photo-section{
-      padding:
-        90px 45px;
+  font-size:60px;
+}
 
-      text-align:center;
+.countdown{
+  max-width:620px;
 
-      background:var(--cream);
+  margin:auto;
 
-      position:relative;
-    }
+  display:grid;
 
+  grid-template-columns:
+    repeat(4,1fr);
 
-    .top-flower-row{
-      font-size:33px;
-      letter-spacing:18px;
-      margin-bottom:25px;
-    }
+  gap:7px;
+}
 
+.count-number{
+  font-size:44px;
 
-    .little-flower-row{
-      color:var(--gold);
+  line-height:1;
+}
 
-      font-size:27px;
+.count-label{
+  margin-top:8px;
 
-      letter-spacing:10px;
+  font-size:10px;
 
-      margin-bottom:-6px;
-    }
+  letter-spacing:.08em;
+}
 
 
-    .arch{
-      width:min(100%,520px);
+/* =========================================
+   PARENTS
+========================================= */
 
-      margin:auto;
+.parents-title{
+  margin:
+    30px 0 17px;
 
-      padding:
-        11px;
+  font-size:61px;
+}
 
-      background:var(--gold);
+.parents{
+  max-width:550px;
 
-      border-radius:
-        50% 50% 0 0 /
-        32% 32% 0 0;
+  margin:auto;
 
-      overflow:hidden;
-    }
+  font-size:28px;
 
+  font-weight:600;
+}
 
-    .arch img{
-      aspect-ratio:
-        4 / 5;
 
-      object-fit:cover;
+/* =========================================
+   RECEPTION
+========================================= */
 
-      object-position:center;
+.reception-title{
+  margin:
+    0 0 8px;
 
-      border-radius:
-        50% 50% 0 0 /
-        30% 30% 0 0;
-    }
+  font-size:67px;
+}
 
+.info-title{
+  margin:
+    20px 0 5px;
 
+  font-size:29px;
 
-    /* =========================
-       COUNTDOWN
-    ========================= */
+  font-weight:700;
+}
 
+.info-text{
+  color:
+    var(--gold);
 
-    .countdown-section{
-      padding:
-        75px 30px;
+  font-size:23px;
 
-      background:var(--brown);
+  line-height:1.3;
+}
 
-      color:white;
+.location-button{
+  display:inline-block;
 
-      text-align:center;
-    }
+  margin:
+    10px 0 20px;
 
+  padding:
+    11px 31px;
 
-    .count-title{
-      font-family:"Great Vibes",cursive;
+  border:
+    2px solid
+    var(--brown);
 
-      font-size:57px;
-    }
+  border-radius:
+    999px;
 
+  background:
+    rgba(255,255,255,.48);
 
-    .countdown{
-      display:grid;
+  color:
+    var(--brown);
 
-      grid-template-columns:
-        repeat(4,1fr);
+  text-decoration:none;
 
-      gap:11px;
+  font-size:23px;
 
-      max-width:600px;
+  font-weight:700;
+}
 
-      margin:
-        35px auto 0;
-    }
+button.location-button{
+  cursor:pointer;
+}
 
+.dress{
+  margin-top:25px;
 
-    .count-item{
-      border:
-        1px solid
-        rgba(255,255,255,.45);
+  font-size:28px;
 
-      padding:
-        16px 4px;
-    }
+  font-weight:700;
+}
 
+.no-black{
+  margin-top:10px;
 
-    .count-number{
-      display:block;
-      font-size:32px;
-    }
+  color:
+    var(--gold);
 
+  font-size:27px;
 
-    .count-label{
-      display:block;
+  text-decoration:
+    underline;
 
-      margin-top:4px;
+  text-underline-offset:
+    6px;
+}
 
-      font-size:12px;
 
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
+/* =========================================
+   LLUVIA DE SOBRES PAGE
+========================================= */
 
+.gift-page{
+  min-height:
+    calc(100svh - 68px);
 
+  background:
+    var(--cream);
+}
 
-    /* =========================
-       PARENTS
-    ========================= */
+.gift-content{
+  position:relative;
 
+  min-height:
+    calc(100svh - 68px);
 
-    .parents-section{
-      padding:
-        85px 40px;
+  display:flex;
 
-      background:#fff8eb;
+  align-items:center;
+  justify-content:center;
 
-      text-align:center;
-    }
+  padding:
+    55px 25px 80px;
 
+  text-align:center;
 
-    .parents-name{
-      margin-top:20px;
-      font-size:31px;
-    }
+  overflow:hidden;
 
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(90,46,15,.08)
+      0 3px,
+      transparent 4px
+    ),
+    var(--cream);
 
+  background-size:
+    48px 48px;
+}
 
-    /* =========================
-       SCHEDULE
-    ========================= */
+.gift-card{
+  width:
+    min(100%,590px);
 
+  padding:
+    55px 28px;
 
-    .schedule{
-      padding:
-        85px 45px;
+  background:
+    rgba(255,250,243,.88);
 
-      background:var(--tan);
+  border:
+    1px solid
+    rgba(74,34,14,.14);
 
-      text-align:center;
+  border-radius:
+    160px 160px 20px 20px;
 
-      color:#fff9ef;
-    }
+  box-shadow:
+    0 12px 30px
+    rgba(75,38,14,.08);
+}
 
+.gift-title{
+  margin:
+    8px 0 20px;
 
-    .schedule-row{
-      max-width:450px;
+  font-size:63px;
 
-      margin:auto;
+  line-height:1;
+}
 
-      padding:25px;
+.gift-text{
+  max-width:470px;
 
-      border-top:
-        1px solid
-        rgba(255,255,255,.55);
-    }
+  margin:
+    0 auto;
 
+  font-size:23px;
 
-    .schedule-row:last-child{
-      border-bottom:
-        1px solid
-        rgba(255,255,255,.55);
-    }
+  line-height:1.5;
+}
 
+.gift-envelope{
+  position:relative;
 
-    .schedule-time{
-      font-size:31px;
-    }
+  width:180px;
+  height:120px;
 
+  margin:
+    38px auto;
 
-    .schedule-name{
-      font-size:24px;
-      margin-top:3px;
-    }
+  background:#ead1ae;
 
+  border:
+    3px solid
+    var(--brown);
 
+  box-shadow:
+    9px 9px 0
+    rgba(186,126,65,.20);
 
-    /* =========================
-       DRESS / GIFT CTA
-    ========================= */
+  overflow:hidden;
+}
 
+.gift-envelope::before{
+  content:"";
 
-    .dress{
-      padding:
-        86px 40px 100px;
+  position:absolute;
 
-      background:var(--cream);
+  left:0;
+  top:0;
 
-      text-align:center;
-    }
+  width:0;
+  height:0;
 
+  border-left:
+    87px solid transparent;
 
-    .dress-rule{
-      margin-top:20px;
-      font-size:25px;
-    }
+  border-right:
+    87px solid transparent;
 
+  border-top:
+    63px solid #c9945f;
+}
 
+.gift-envelope::after{
+  content:"♡";
 
-    /* =========================
-       FOOTER
-    ========================= */
+  position:absolute;
 
+  left:50%;
+  top:45%;
 
-    .brown-footer{
-      padding:
-        80px 25px 70px;
+  transform:
+    translate(-50%,-50%);
 
-      background:var(--dark);
+  color:
+    var(--brown);
 
-      color:white;
+  font-size:29px;
+  font-weight:700;
+}
 
-      text-align:center;
-    }
+.gift-note{
+  margin-top:27px;
 
+  font-size:18px;
 
-    .brown-footer-symbols{
-      font-size:28px;
-      letter-spacing:22px;
-      margin-bottom:35px;
-    }
+  font-style:italic;
+}
 
 
-    .brown-footer-text{
-      font-size:22px;
+/* =========================================
+   RSVP PAGE
+========================================= */
 
-      letter-spacing:.18em;
+.rsvp-page{
+  min-height:
+    calc(100svh - 68px);
 
-      text-transform:uppercase;
-    }
+  background:
+    #ead0ae;
+}
 
+.rsvp-content{
+  position:relative;
 
+  min-height:
+    calc(100svh - 68px);
 
-    /* =========================
-       LLUVIA PAGE
-    ========================= */
+  padding:
+    50px 25px 75px;
 
+  text-align:center;
 
-    .gift-page{
-      min-height:
-        calc(100vh - 128px);
+  overflow:hidden;
+}
 
-      background:var(--cream);
+.rsvp-photo-frame{
+  position:relative;
 
-      padding-bottom:0;
-    }
+  width:
+    min(82vw,470px);
 
+  margin:auto;
 
-    .gift-main{
-      position:relative;
+  padding:16px;
+}
 
-      min-height:
-        calc(100vh - 128px);
+.rsvp-photo{
+  width:100%;
 
-      padding:
-        90px 55px 110px;
+  aspect-ratio:4/5;
 
-      text-align:center;
-    }
+  object-fit:cover;
 
+  object-position:
+    center 65%;
 
-    .gift-card{
-      max-width:600px;
+  border:
+    6px solid
+    var(--tan-dark);
 
-      margin:
-        40px auto;
+  border-radius:
+    47% 47% 0 0
+    /
+    18% 18% 0 0;
+}
 
-      padding:
-        60px 35px;
+.rsvp-photo-frame::before{
+  content:
+    "✿ ✿ ✿ ✿ ✿ ✿ ✿";
 
-      background:
-        rgba(255,252,245,.7);
+  position:absolute;
 
-      border-radius:28px;
+  left:50%;
+  top:-4px;
 
-      border:
-        2px solid
-        rgba(177,132,77,.35);
-    }
+  transform:
+    translateX(-50%);
 
+  width:110%;
 
-    .gift-envelope{
-      width:190px;
-      height:120px;
+  color:
+    var(--tan-dark);
 
-      margin:
-        35px auto;
+  text-align:center;
 
-      position:relative;
+  font-size:21px;
 
-      background:var(--tan);
+  letter-spacing:4px;
+}
 
-      border-radius:4px;
+.rsvp-title{
+  margin:
+    28px 0 12px;
 
-      overflow:hidden;
-    }
+  font-size:58px;
+}
 
+.rsvp-copy{
+  max-width:470px;
 
-    .gift-envelope::before{
-      content:"";
+  margin:
+    0 auto 20px;
 
-      position:absolute;
+  font-size:21px;
 
-      inset:0;
+  line-height:1.4;
+}
 
-      background:#b9854e;
+.whatsapp-button{
+  display:inline-block;
 
-      clip-path:
-        polygon(
-          0 0,
-          100% 0,
-          50% 59%
-        );
-    }
+  margin:
+    10px auto;
 
+  padding:
+    11px 25px;
 
-    .gift-envelope::after{
-      content:"15";
+  border:
+    2px solid
+    var(--brown);
 
-      position:absolute;
+  border-radius:
+    999px;
 
-      left:50%;
-      top:58%;
+  background:
+    rgba(255,250,243,.43);
 
-      transform:
-        translate(-50%,-50%);
+  color:
+    var(--brown);
 
-      width:52px;
-      height:52px;
+  text-decoration:none;
 
-      border-radius:50%;
+  font-size:23px;
 
-      background:var(--brown);
+  font-weight:700;
+}
 
-      color:#e7c28e;
+.rsvp-bottom{
+  min-height:280px;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  padding:
+    45px 30px;
 
-      font-size:22px;
-    }
+  background:
+    var(--tan);
 
+  text-align:center;
 
-    .gift-copy{
-      font-size:26px;
-      line-height:1.55;
-    }
+  font-size:32px;
+}
 
+.rsvp-bottom .script{
+  font-size:55px;
+}
 
-    .family{
-      margin-top:40px;
 
-      font-family:"Great Vibes",cursive;
+/* =========================================
+   MUSIC
+========================================= */
 
-      font-size:42px;
-    }
+#musicButton{
+  position:fixed;
 
+  right:16px;
 
+  bottom:
+    calc(
+      18px +
+      env(safe-area-inset-bottom)
+    );
 
-    /* =========================
-       RSVP
-    ========================= */
+  z-index:4000;
 
+  width:49px;
+  height:49px;
 
-    .rsvp-page{
-      min-height:
-        calc(100vh - 128px);
+  display:none;
 
-      background:var(--cream);
-    }
+  border:
+    1px solid
+    rgba(255,255,255,.65);
 
+  border-radius:50%;
 
-    .rsvp-main{
-      position:relative;
+  background:
+    rgba(73,34,14,.92);
 
-      min-height:
-        calc(100vh - 128px);
+  color:white;
 
-      padding:
-        75px 40px 0;
+  font-size:21px;
 
-      text-align:center;
-    }
+  box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.18);
+}
 
+#musicButton.show{
+  display:block;
+}
 
-    .rsvp-arch{
-      width:min(100%,520px);
 
-      margin:
-        10px auto 70px;
+/* =========================================
+   FOOTER
+========================================= */
 
-      padding:
-        12px;
+.footer{
+  padding:
+    37px 20px;
 
-      background:
-        var(--gold);
+  background:
+    var(--dark);
 
-      border-radius:
-        50% 50% 0 0 /
-        30% 30% 0 0;
-    }
+  color:white;
 
+  text-align:center;
 
-    .rsvp-arch img{
-      aspect-ratio:
-        4 / 5;
+  font-size:14px;
 
-      object-fit:cover;
+  letter-spacing:.1em;
+}
 
-      border-radius:
-        50% 50% 0 0 /
-        28% 28% 0 0;
-    }
+.footer-decor{
+  margin-bottom:15px;
 
+  font-size:20px;
 
-    .rsvp-title{
-      font-family:"Great Vibes",cursive;
+  letter-spacing:8px;
+}
 
-      font-size:68px;
 
-      line-height:1.45;
+/* =========================================
+   MOBILE
+========================================= */
 
-      max-width:600px;
+@media(max-width:440px){
 
-      margin:auto;
-    }
+  .section{
+    padding:
+      58px 18px;
+  }
 
+  .hero-frame{
+    min-height:585px;
 
-    .rsvp-copy{
-      max-width:570px;
+    padding:
+      62px 18px 40px;
+  }
 
-      margin:
-        45px auto 0;
+  .hero-title{
+    font-size:49px;
+  }
 
-      font-size:27px;
+  .hero-copy{
+    font-size:18px;
+  }
 
-      line-height:1.4;
-    }
+  .quince-title{
+    font-size:64px;
+  }
 
+  .person-name{
+    font-size:47px;
+  }
 
-    .rsvp-bottom{
-      margin-top:85px;
+  .date-number{
+    font-size:67px;
+  }
 
-      margin-left:-40px;
-      margin-right:-40px;
+  .date-side{
+    font-size:17px;
+  }
 
-      min-height:420px;
+  .count-number{
+    font-size:35px;
+  }
 
-      padding:
-        52px 25px;
+  .reception-title{
+    font-size:58px;
+  }
 
-      background:var(--tan);
+  .menu-link{
+    font-size:30px;
+  }
 
-      font-size:35px;
-    }
+  .gift-title{
+    font-size:53px;
+  }
 
+  .gift-text{
+    font-size:21px;
+  }
 
-    .rsvp-bottom-script{
-      font-family:"Great Vibes",cursive;
+  .rsvp-title{
+    font-size:50px;
+  }
 
-      font-size:52px;
-    }
+}
 
+</style>
 
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-
-    @media(max-width:600px){
-
-      .header{
-        height:118px;
-      }
-
-
-      .hero{
-        min-height:
-          calc(100svh - 118px);
-      }
-
-
-      .hero-title{
-        font-size:58px;
-      }
-
-
-      .hero-name{
-        font-size:31px;
-      }
-
-
-      .section{
-        padding:
-          76px 35px;
-      }
-
-
-      .script{
-        font-size:55px;
-      }
-
-
-      .body-text{
-        font-size:23px;
-      }
-
-
-      .photo-section{
-        padding:
-          80px 55px;
-      }
-
-
-      .arch{
-        max-width:500px;
-      }
-
-
-      .rsvp-title{
-        font-size:58px;
-      }
-
-
-      .rsvp-copy{
-        font-size:23px;
-      }
-
-
-      .outline-button{
-        font-size:22px;
-        padding:
-          12px 34px;
-      }
-
-    }
-
-  </style>
 </head>
-
 
 
 <body>
 
 
-  <!-- OPENING -->
+<!-- =========================================
+     MUSIC
+========================================= -->
 
-  <div id="opening">
+<audio
+  id="music"
+  loop
+  preload="auto">
 
-    <div class="opening-inner">
+  <source
+    src="song.mp3"
+    type="audio/mpeg">
 
-      <div class="opening-name">
-        Geraldine
-      </div>
+</audio>
 
-      <div class="opening-small">
-        Mis Quince
-      </div>
 
-      <div
-        class="envelope"
-        id="envelope">
 
-        <div class="envelope-body"></div>
+<!-- =========================================
+     OPENING
+========================================= -->
 
-        <div class="flap"></div>
+<div id="opening">
 
-        <div class="wax">
-          15
-        </div>
-
-      </div>
-
-      <div class="tap">
-        Toca el sobre para abrir
-      </div>
-
-    </div>
-
+  <div class="opening-small">
+    UNA INVITACIÓN ESPECIAL
   </div>
 
+  <div class="opening-decor">
+    ✿ ❦ ✿
+  </div>
 
+  <div
+    class="envelope"
+    id="envelope">
 
-  <!-- MUSIC -->
+    <div class="envelope-back"></div>
 
-  <audio
-    id="music"
-    loop
-    preload="auto">
+    <div class="invite-card">
 
-    <source
-      src="song.mp3"
-      type="audio/mpeg">
-
-  </audio>
-
-
-
-  <div id="app">
-
-
-    <!-- HEADER -->
-
-    <header class="header">
-
-      <div class="header-name">
-        Geraldine
+      <div class="invite-card-small">
+        MIS QUINCE
       </div>
 
-      <button
-        id="menuButton"
-        class="menu-button"
-        type="button"
-        aria-label="Menú">
+      <div class="invite-card-title script">
+        Cielito Lindo
+      </div>
 
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </button>
-
-    </header>
-
-
-
-    <div
-      id="menuOverlay"
-      class="menu-overlay">
     </div>
 
+    <div class="front-left"></div>
 
+    <div class="front-right"></div>
 
-    <nav
-      id="sideMenu"
-      class="side-menu">
+    <div class="front-bottom"></div>
 
-      <button
-        id="closeMenu"
-        class="close-menu"
-        type="button">
-        ×
-      </button>
+    <div class="flap"></div>
 
-
-      <button
-        class="menu-link active"
-        data-action="home">
-
-        Inicio
-
-      </button>
-
-
-      <button
-        class="menu-link"
-        data-action="invitation">
-
-        Invitación
-
-      </button>
-
-
-      <button
-        class="menu-link"
-        data-action="gifts">
-
-        Lluvia de sobres
-
-      </button>
-
-
-      <button
-        class="menu-link"
-        data-action="rsvp">
-
-        RSVP
-
-      </button>
-
-    </nav>
-
-
+    <div class="seal">
+      15
+    </div>
 
     <button
-      id="musicButton"
-      class="music"
-      type="button">
-
-      ♫
-
+      id="openButton"
+      aria-label="Abrir invitación">
     </button>
 
+  </div>
 
+  <div class="tap-text">
+    TOCA PARA ABRIR
+  </div>
 
-    <!-- =========================
-         INVITATION
-    ========================= -->
-
-
-    <div
-      id="invitationView"
-      class="view active">
-
-
-      <section class="hero">
-
-        <div class="hero-content">
-
-          <div class="hero-small">
-            Cielito Lindo
-          </div>
-
-          <div class="hero-title">
-            Mis Quince
-          </div>
-
-          <div class="hero-name">
-            Geraldine Romero
-          </div>
-
-          <div class="flowers-line">
-            ✿ ❦ ✿
-          </div>
-
-        </div>
-
-      </section>
+</div>
 
 
 
-      <div class="papel-picado">
+<!-- =========================================
+     MUSIC BUTTON
+========================================= -->
 
-        <div class="flag">
-          ✿
-        </div>
+<button
+  id="musicButton"
+  aria-label="Pausar música">
 
-        <div class="flag">
-          ✿
-        </div>
+  ♫
 
-        <div class="flag">
-          ✿
-        </div>
+</button>
 
-        <div class="flag">
-          ✿
-        </div>
 
-        <div class="flag">
-          ✿
-        </div>
+
+<!-- =========================================
+     MENU
+========================================= -->
+
+<div id="menuShade"></div>
+
+<aside id="sideMenu">
+
+  <button
+    class="close-menu"
+    id="closeMenu"
+    aria-label="Cerrar menú">
+
+    ×
+
+  </button>
+
+  <div class="menu-decoration">
+    ✿ ❦ ✿
+  </div>
+
+  <button
+    class="menu-link active"
+    data-action="home">
+
+    Inicio
+
+  </button>
+
+  <button
+    class="menu-link"
+    data-action="invitation">
+
+    Invitación
+
+  </button>
+
+  <button
+    class="menu-link"
+    data-action="gifts">
+
+    Lluvia de sobres
+
+  </button>
+
+  <button
+    class="menu-link"
+    data-action="rsvp">
+
+    RSVP
+
+  </button>
+
+  <div class="menu-bottom">
+    Geraldine Romero · XV
+  </div>
+
+</aside>
+
+
+
+<!-- =========================================
+     APP
+========================================= -->
+
+<div id="app">
+
+
+<header class="topbar">
+
+  <button
+    class="menu-button"
+    id="menuButton"
+    aria-label="Abrir menú">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</header>
+
+
+
+<!-- =========================================
+     PAGE 1 - INVITATION
+========================================= -->
+
+<div
+  id="invitationView"
+  class="view active">
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section
+  class="section tan"
+  id="homeSection">
+
+  <div class="side-vine left">
+
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
+
+  </div>
+
+  <div class="side-vine right">
+
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
+
+  </div>
+
+  <div class="hero-frame">
+
+    <div class="flowers">
+      ✿ ❦ ✿ ❦ ✿
+    </div>
+
+    <h1 class="script hero-title">
+      Cielito Lindo
+    </h1>
+
+    <div class="divider">
+      ✿
+    </div>
+
+    <p class="hero-copy">
+
+      Con la bendición de Dios y el amor
+      de mi familia, los invito a compartir
+      conmigo este día tan especial.
+
+    </p>
+
+    <div class="large-flowers">
+      ❀ ❦ ❀
+    </div>
+
+    <div class="script quince-title">
+
+      Mis
+      <br>
+      Quince
+
+    </div>
+
+    <div class="flowers">
+      ✿ ❦ ✿ ❦ ✿
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section class="section cream">
+
+  <div class="side-vine left">
+
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+
+  </div>
+
+  <div class="side-vine right">
+
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+
+  </div>
+
+  <div class="flowers">
+    ❀ ✿ ❦ ✿ ❀
+  </div>
+
+  <div class="circle-wrap">
+
+    <img
+      src="geraldine-portrait.jpg"
+      alt="Geraldine Romero"
+      class="circle-photo">
+
+  </div>
+
+  <div class="script person-name">
+    Geraldine Romero
+  </div>
+
+  <div class="large-flowers">
+    ❀ ❦ ❀
+  </div>
+
+</section>
+
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section
+  class="section white"
+  id="invitationSection">
+
+  <div class="date-card">
+
+    <div class="flowers">
+      ✿ ❦ ✿
+    </div>
+
+    <div class="month">
+      NOVIEMBRE
+    </div>
+
+    <div class="date-row">
+
+      <div class="date-side">
+        VIERNES
+      </div>
+
+      <div class="date-number">
+        27
+      </div>
+
+      <div class="date-side">
+        2026
+      </div>
+
+    </div>
+
+    <div class="date-time">
+      A LAS 5:00 PM
+    </div>
+
+    <div class="flowers">
+      ❀ ❦ ❀
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section class="section cream">
+
+  <div class="circle-wrap">
+
+    <img
+      src="geraldine-blanket.jpg"
+      alt="Geraldine Romero"
+      class="circle-photo">
+
+  </div>
+
+  <h2 class="script count-title">
+    Solo faltan
+  </h2>
+
+  <div class="divider">
+    ✿
+  </div>
+
+  <div class="countdown">
+
+    <div>
+
+      <div
+        id="days"
+        class="count-number">
+
+        00
 
       </div>
 
-
-
-      <section
-        id="invitationSection"
-        class="section decorated">
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-
-        <div class="small-caps">
-          Con mucha alegría
-        </div>
-
-
-        <div class="script">
-          Mis XV
-        </div>
-
-
-        <div class="ornament">
-          <span>✿</span>
-        </div>
-
-
-        <div class="date-number">
-          27
-        </div>
-
-
-        <div class="date-month">
-          Noviembre
-        </div>
-
-
-        <div class="date-year">
-          2026
-        </div>
-
-
-        <div class="date-time">
-          Viernes · 5:00 PM
-        </div>
-
-
-        <div class="flowers-line">
-          ✿ ❦ ✿
-        </div>
-
-      </section>
-
-
-
-      <section class="section location decorated">
-
-        <div class="side-flower left two">
-          ❦
-        </div>
-
-        <div class="side-flower right two">
-          ❦
-        </div>
-
-
-        <div class="script">
-          Recepción
-        </div>
-
-
-        <div class="location-name">
-          Vazquez Ranch
-        </div>
-
-
-        <div class="address">
-          14831 Quail Ln<br>
-          Terrell, TX 75160
-        </div>
-
-
-        <a
-          class="outline-button"
-          href="https://www.google.com/maps/search/?api=1&query=Vazquez%20Ranch%2014831%20Quail%20Ln%20Terrell%20TX%2075160"
-          target="_blank"
-          rel="noopener">
-
-          Ver ubicación
-
-        </a>
-
-      </section>
-
-
-
-      <!-- BLANKET PHOTO -->
-
-      <section class="photo-section decorated">
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-        <div class="top-flower-row">
-          ✿ ❦ ✿ ❦ ✿
-        </div>
-
-        <div class="little-flower-row">
-          ✿ ✿ ✿ ✿ ✿ ✿
-        </div>
-
-        <div class="arch">
-
-          <img
-            src="geraldine-blanket.jpg"
-            alt="Geraldine">
-
-        </div>
-
-      </section>
-
-
-
-      <!-- COUNTDOWN -->
-
-      <section class="countdown-section">
-
-        <div class="count-title">
-          Falta poco
-        </div>
-
-
-        <div class="countdown">
-
-          <div class="count-item">
-
-            <span
-              id="days"
-              class="count-number">
-              00
-            </span>
-
-            <span class="count-label">
-              Días
-            </span>
-
-          </div>
-
-
-          <div class="count-item">
-
-            <span
-              id="hours"
-              class="count-number">
-              00
-            </span>
-
-            <span class="count-label">
-              Horas
-            </span>
-
-          </div>
-
-
-          <div class="count-item">
-
-            <span
-              id="minutes"
-              class="count-number">
-              00
-            </span>
-
-            <span class="count-label">
-              Min
-            </span>
-
-          </div>
-
-
-          <div class="count-item">
-
-            <span
-              id="seconds"
-              class="count-number">
-              00
-            </span>
-
-            <span class="count-label">
-              Seg
-            </span>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <!-- PARENTS -->
-
-      <section class="parents-section decorated">
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-
-        <div class="script">
-          Mis padres
-        </div>
-
-
-        <div class="parents-name">
-          Edith y Jesus Romero
-        </div>
-
-
-        <div class="flowers-line">
-          ✿ ❦ ✿
-        </div>
-
-      </section>
-
-
-
-      <!-- SECOND PHOTO -->
-
-      <section class="photo-section">
-
-        <div class="top-flower-row">
-          ✿ ❦ ✿ ❦ ✿
-        </div>
-
-        <div class="little-flower-row">
-          ✿ ✿ ✿ ✿ ✿ ✿
-        </div>
-
-        <div class="arch">
-
-          <img
-            src="geraldine-15.jpg"
-            alt="Geraldine XV">
-
-        </div>
-
-      </section>
-
-
-
-      <!-- PROGRAM -->
-
-      <section class="schedule">
-
-        <div class="script">
-          Programa
-        </div>
-
-
-        <div class="schedule-row">
-
-          <div class="schedule-time">
-            5:00 PM – 7:00 PM
-          </div>
-
-          <div class="schedule-name">
-            Comida
-          </div>
-
-        </div>
-
-
-        <div class="schedule-row">
-
-          <div class="schedule-time">
-            9:00 PM
-          </div>
-
-          <div class="schedule-name">
-            Baile
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <!-- DRESS -->
-
-      <section class="dress decorated">
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-
-        <div class="script">
-          Código de vestimenta
-        </div>
-
-
-        <div class="dress-rule">
-          Favor de no vestir color negro
-        </div>
-
-
-        <div class="flowers-line">
-          ✿ ❦ ✿
-        </div>
-
-
-        <div
-          class="script"
-          style="margin-top:55px;">
-
-          Lluvia de Sobres
-
-        </div>
-
-
-        <div class="body-text">
-          Tu presencia es nuestro mejor regalo.
-        </div>
-
-
-        <button
-          id="openGiftPageButton"
-          class="outline-button"
-          type="button">
-
-          Ver lluvia de sobres
-
-        </button>
-
-      </section>
-
-
-
-      <footer class="brown-footer">
-
-        <div class="brown-footer-symbols">
-          ✿ ❦ ✿
-        </div>
-
-        <div class="brown-footer-text">
-          Gracias por ser parte de este día
-        </div>
-
-      </footer>
-
-
-
-      <div class="papel-picado">
-
-        <div class="flag">
-          ✿
-        </div>
-
-        <div class="flag">
-          ✿
-        </div>
-
-        <div class="flag">
-          ✿
-        </div>
-
-        <div class="flag">
-          ✿
-        </div>
-
-        <div class="flag">
-          ✿
-        </div>
-
+      <div class="count-label">
+        DÍAS
       </div>
-
 
     </div>
 
 
+    <div>
 
-    <!-- =========================
-         LLUVIA DE SOBRES
-    ========================= -->
+      <div
+        id="hours"
+        class="count-number">
 
-
-    <div
-      id="giftsView"
-      class="view gift-page">
-
-
-      <main class="gift-main decorated">
-
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-
-        <div class="script">
-          Lluvia de sobres
-        </div>
-
-
-        <div class="ornament">
-          <span>✿</span>
-        </div>
-
-
-        <div class="gift-card">
-
-
-          <div class="gift-copy">
-
-            Tu presencia es nuestro mejor regalo.
-
-          </div>
-
-
-          <div class="gift-envelope">
-          </div>
-
-
-          <div class="gift-copy">
-
-            Si deseas tener un detalle con Geraldine,
-            agradecemos tus muestras de cariño
-            en lluvia de sobres.
-
-          </div>
-
-        </div>
-
-
-        <div class="flowers-line">
-          ✿ ❦ ✿
-        </div>
-
-
-        <div
-          class="gift-copy"
-          style="margin-top:55px;">
-
-          Gracias por acompañarnos y ser parte
-          de este día tan especial.
-
-        </div>
-
-
-        <div class="family">
-          Con cariño, la familia Romero
-        </div>
-
-      </main>
-
-
-
-      <footer class="brown-footer">
-
-        <div class="brown-footer-symbols">
-          ✿ ❦ ✿
-        </div>
-
-        <div class="brown-footer-text">
-          Gracias por ser parte de este día
-        </div>
-
-      </footer>
-
-
-
-      <div class="papel-picado">
-
-        <div class="flag">✿</div>
-        <div class="flag">✿</div>
-        <div class="flag">✿</div>
-        <div class="flag">✿</div>
-        <div class="flag">✿</div>
+        00
 
       </div>
 
+      <div class="count-label">
+        HORAS
+      </div>
 
     </div>
 
 
+    <div>
 
-    <!-- =========================
-         RSVP
-    ========================= -->
+      <div
+        id="minutes"
+        class="count-number">
 
+        00
 
-    <div
-      id="rsvpView"
-      class="view rsvp-page">
+      </div>
 
-
-      <main class="rsvp-main decorated">
-
-
-        <div class="side-flower left one">
-          ✿
-        </div>
-
-        <div class="side-flower right one">
-          ✿
-        </div>
-
-
-        <div class="top-flower-row">
-          ✿ ❦ ✿ ❦ ✿
-        </div>
-
-
-        <div class="little-flower-row">
-          ✿ ✿ ✿ ✿ ✿ ✿
-        </div>
-
-
-        <div class="rsvp-arch">
-
-          <img
-            src="geraldine-rsvp.jpg"
-            alt="Geraldine">
-
-        </div>
-
-
-
-        <div class="rsvp-title">
-
-          Confirma tu<br>
-          asistencia
-
-        </div>
-
-
-
-        <div class="ornament">
-          <span>✿</span>
-        </div>
-
-
-
-        <p class="rsvp-copy">
-
-          Nos dará mucho gusto compartir este
-          momento tan especial contigo.
-
-        </p>
-
-
-
-        <p class="rsvp-copy">
-
-          Haz click en el botón para confirmar
-          tu asistencia por WhatsApp.
-
-        </p>
-
-
-
-        <a
-          class="outline-button"
-          href="https://wa.me/14694717515?text=Me%20alegra%20recibir%20tu%20invitaci%C3%B3n%2C%20Confirmo%20mi%20asistencia%20para%20festejar%20ese%20gran%20d%C3%ADa.%20%F0%9F%A4%8E"
-          target="_blank"
-          rel="noopener">
-
-          Confirma tu asistencia
-
-        </a>
-
-
-
-        <div class="flowers-line"
-             style="margin-top:65px;">
-
-          ✿ ❦ ✿
-
-        </div>
-
-
-
-        <div class="rsvp-bottom">
-
-          <div class="rsvp-bottom-script">
-            Te esperamos para
-          </div>
-
-          compartir este momento<br>
-          especial
-
-        </div>
-
-
-      </main>
-
+      <div class="count-label">
+        MINUTOS
+      </div>
 
     </div>
 
+
+    <div>
+
+      <div
+        id="seconds"
+        class="count-number">
+
+        00
+
+      </div>
+
+      <div class="count-label">
+        SEGUNDOS
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="large-flowers">
+    ❀ ❦ ❀
+  </div>
+
+</section>
+
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section class="section tan">
+
+  <div class="flowers">
+    ✿ ❦ ✿
+  </div>
+
+  <img
+    src="geraldine-15.jpg"
+    alt="Geraldine Romero"
+    class="arch-photo">
+
+  <h2 class="script parents-title">
+    Mis Padres
+  </h2>
+
+  <div class="flowers">
+    ❀ ✦ ❀
+  </div>
+
+  <div class="parents">
+
+    Edith y Jesus Romero
+
+  </div>
+
+</section>
+
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<section class="section white">
+
+  <div class="side-vine left">
+
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+
+  </div>
+
+  <div class="side-vine right">
+
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+
+  </div>
+
+  <div class="flowers">
+    ✿ ❦ ✿
+  </div>
+
+  <h2 class="script reception-title">
+    Recepción
+  </h2>
+
+  <p>
+    Da click para continuar
+  </p>
+
+  <a
+    class="location-button"
+    href="https://www.google.com/maps/search/?api=1&query=Vazquez+Ranch+14831+Quail+Ln+Terrell+TX+75160"
+    target="_blank"
+    rel="noopener">
+
+    Ubicación
+
+  </a>
+
+  <div class="divider">
+    ✿
+  </div>
+
+  <div class="info-title">
+    Vazquez Ranch
+  </div>
+
+  <div class="info-text">
+
+    14831 Quail Ln
+
+    <br>
+
+    Terrell, TX 75160
+
+  </div>
+
+  <div class="info-title">
+    Comida
+  </div>
+
+  <div class="info-text">
+    5:00 – 7:00 pm
+  </div>
+
+  <div class="info-title">
+    Baile
+  </div>
+
+  <div class="info-text">
+    9:00 pm
+  </div>
+
+  <div class="large-flowers">
+    ❀ ❦ ❀
+  </div>
+
+
+  <!-- DRESS CODE -->
+
+  <div class="dress">
+    Código de vestimenta
+  </div>
+
+  <div class="no-black">
+    Favor de no vestir color negro
+  </div>
+
+
+  <div class="large-flowers">
+    ✿ ❦ ✿
+  </div>
+
+
+  <!-- NEW LLUVIA BUTTON -->
+
+  <div class="dress">
+    Lluvia de Sobres
+  </div>
+
+  <p
+    style="
+      max-width:430px;
+      margin:10px auto 18px;
+      font-size:20px;
+      line-height:1.4;
+    ">
+
+    Conoce más sobre nuestra lluvia de sobres.
+
+  </p>
+
+  <button
+    class="location-button"
+    id="openGiftPageButton"
+    type="button">
+
+    Ver lluvia de sobres
+
+  </button>
+
+
+  <div class="large-flowers">
+    ✿ ❦ ✿
+  </div>
+
+</section>
+
+
+
+<footer class="footer">
+
+  <div class="footer-decor">
+    ✿ ❦ ✿
+  </div>
+
+  GERALDINE ROMERO · MIS QUINCE · 27 NOV 2026
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =========================================
+     PAGE 2 - LLUVIA DE SOBRES
+========================================= -->
+
+<div
+  id="giftsView"
+  class="view gift-page">
+
+
+<div class="papel">
+
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+
+</div>
+
+
+
+<div class="gift-content">
+
+  <div class="side-vine left">
+
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
+
+  </div>
+
+  <div class="side-vine right">
+
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
 
   </div>
 
 
+  <div class="gift-card">
 
-  <script>
+    <div class="flowers">
+      ✿ ❦ ✿ ❦ ✿
+    </div>
 
+    <h1 class="script gift-title">
+      Lluvia de Sobres
+    </h1>
 
-    const opening =
-      document.getElementById("opening");
+    <div class="divider">
+      ✿
+    </div>
 
+    <p class="gift-text">
 
-    const envelope =
-      document.getElementById("envelope");
+      Tu presencia es nuestro mejor regalo.
 
+      <br><br>
 
-    const app =
-      document.getElementById("app");
+      Si deseas tener un detalle con Geraldine,
+      agradecemos tus muestras de cariño
+      en lluvia de sobres.
 
+    </p>
 
-    const music =
-      document.getElementById("music");
 
+    <div class="gift-envelope"></div>
 
-    const musicButton =
-      document.getElementById("musicButton");
 
+    <div class="large-flowers">
+      ❀ ❦ ❀
+    </div>
 
-    const menuButton =
-      document.getElementById("menuButton");
 
+    <p class="gift-text">
 
-    const closeMenu =
-      document.getElementById("closeMenu");
+      Gracias por acompañarnos
+      y ser parte de este día
+      tan especial.
 
+    </p>
 
-    const sideMenu =
-      document.getElementById("sideMenu");
 
+    <div class="gift-note">
 
-    const menuOverlay =
-      document.getElementById("menuOverlay");
+      Con cariño, la familia Romero
 
+    </div>
 
-    const menuLinks =
-      document.querySelectorAll(".menu-link");
+  </div>
 
+</div>
 
-    const invitationView =
-      document.getElementById("invitationView");
 
 
-    const giftsView =
-      document.getElementById("giftsView");
+<footer class="footer">
 
+  <div class="footer-decor">
+    ✿ ❦ ✿
+  </div>
 
-    const rsvpView =
-      document.getElementById("rsvpView");
+  GRACIAS POR SER PARTE DE ESTE DÍA
 
+</footer>
 
-    const openGiftPageButton =
-      document.getElementById("openGiftPageButton");
 
+</div>
 
 
-    let opened = false;
 
-    let scrollTimer = null;
+<!-- =========================================
+     PAGE 3 - RSVP
+========================================= -->
 
-    let autoScrolling = false;
+<div
+  id="rsvpView"
+  class="view rsvp-page">
 
 
+<div class="papel">
 
-    function stopAutoScroll(){
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
+  <div class="papel-piece"></div>
 
-      autoScrolling = false;
+</div>
 
-      if(scrollTimer){
 
-        clearInterval(scrollTimer);
 
-        scrollTimer = null;
+<div class="rsvp-content">
 
-      }
+  <div class="side-vine left">
 
-    }
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
 
+  </div>
 
+  <div class="side-vine right">
 
-    function startAutoScroll(){
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
 
-      if(
-        !invitationView
-          .classList
-          .contains("active")
-      ){
-        return;
-      }
+  </div>
 
 
-      stopAutoScroll();
+  <div class="flowers">
+    ✿ ❦ ✿ ❦ ✿
+  </div>
 
-      autoScrolling = true;
 
+  <div class="rsvp-photo-frame">
 
-      scrollTimer =
-        setInterval(
-          function(){
+    <img
+      src="geraldine-rsvp.jpg"
+      alt="Geraldine Romero"
+      class="rsvp-photo">
 
-            if(
-              !invitationView
-                .classList
-                .contains("active")
-            ){
+  </div>
 
-              stopAutoScroll();
 
-              return;
+  <h1 class="script rsvp-title">
+    Confirma tu asistencia
+  </h1>
 
-            }
 
+  <div class="divider">
+    ✿
+  </div>
 
-            const currentBottom =
-              window.scrollY +
-              window.innerHeight;
 
+  <p class="rsvp-copy">
 
-            const invitationBottom =
-              invitationView
-                .getBoundingClientRect()
-                .bottom +
-              window.scrollY;
+    Nos dará mucho gusto compartir
+    este momento tan especial contigo.
 
+  </p>
 
-            if(
-              currentBottom >=
-              invitationBottom - 5
-            ){
 
-              stopAutoScroll();
+  <p class="rsvp-copy">
 
-              return;
+    Haz click en el botón para confirmar
+    tu asistencia por WhatsApp.
 
-            }
+  </p>
 
 
-            window.scrollBy(
-              0,
-              1
-            );
+  <a
+    class="whatsapp-button"
+    href="https://wa.me/14694717515?text=Me%20alegra%20recibir%20tu%20invitaci%C3%B3n%2C%20Confirmo%20mi%20asistencia%20para%20festejar%20ese%20gran%20d%C3%ADa.%20%F0%9F%A4%8E"
+    target="_blank"
+    rel="noopener">
 
-          },
-          24
-        );
+    Confirma tu asistencia
 
-    }
+  </a>
 
 
+  <div class="large-flowers">
+    ❀ ❦ ❀
+  </div>
 
-    /* OPEN ENVELOPE */
+</div>
 
 
-    envelope.addEventListener(
-      "click",
+
+<div class="rsvp-bottom">
+
+  <div class="script">
+    Te esperamos para
+  </div>
+
+  compartir este momento
+
+  <br>
+
+  especial
+
+  <div class="large-flowers">
+    ✿ ❦ ✿
+  </div>
+
+</div>
+
+
+
+<footer class="footer">
+
+  GERALDINE ROMERO · MIS QUINCE
+
+</footer>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const opening =
+  document.getElementById("opening");
+
+const envelope =
+  document.getElementById("envelope");
+
+const openButton =
+  document.getElementById("openButton");
+
+const app =
+  document.getElementById("app");
+
+const music =
+  document.getElementById("music");
+
+const musicButton =
+  document.getElementById("musicButton");
+
+const sideMenu =
+  document.getElementById("sideMenu");
+
+const menuShade =
+  document.getElementById("menuShade");
+
+const menuButton =
+  document.getElementById("menuButton");
+
+const closeMenu =
+  document.getElementById("closeMenu");
+
+const invitationView =
+  document.getElementById("invitationView");
+
+const giftsView =
+  document.getElementById("giftsView");
+
+const rsvpView =
+  document.getElementById("rsvpView");
+
+const menuLinks =
+  document.querySelectorAll(".menu-link");
+
+const openGiftPageButton =
+  document.getElementById("openGiftPageButton");
+
+
+let opened = false;
+
+
+/* =========================================
+   AUTO SCROLL
+========================================= */
+
+let scrollTimer = null;
+
+let autoScrolling = false;
+
+
+function stopAutoScroll(){
+
+  autoScrolling = false;
+
+  if(scrollTimer){
+
+    clearInterval(scrollTimer);
+
+    scrollTimer = null;
+
+  }
+
+}
+
+
+function startAutoScroll(){
+
+  /*
+  Only auto-scroll the invitation.
+  */
+
+  if(
+    !invitationView
+      .classList
+      .contains("active")
+  ){
+    return;
+  }
+
+
+  stopAutoScroll();
+
+  autoScrolling = true;
+
+
+  /*
+  One pixel every 24 milliseconds.
+  Slow and smooth on mobile.
+  */
+
+  scrollTimer =
+    setInterval(
       function(){
 
-        if(opened){
+
+        if(
+          !invitationView
+            .classList
+            .contains("active")
+        ){
+
+          stopAutoScroll();
+
           return;
-        }
-
-
-        opened = true;
-
-
-        envelope
-          .classList
-          .add("open");
-
-
-        music
-          .play()
-          .then(function(){
-
-            musicButton
-              .classList
-              .add("show");
-
-          })
-          .catch(function(){
-
-            musicButton
-              .classList
-              .add("show");
-
-          });
-
-
-        setTimeout(
-          function(){
-
-            app
-              .classList
-              .add("ready");
-
-          },
-          1000
-        );
-
-
-        setTimeout(
-          function(){
-
-            opening
-              .classList
-              .add("gone");
-
-            window.scrollTo(
-              0,
-              0
-            );
-
-          },
-          2200
-        );
-
-
-        setTimeout(
-          function(){
-
-            window.scrollTo(
-              0,
-              0
-            );
-
-            startAutoScroll();
-
-          },
-          6000
-        );
-
-      }
-    );
-
-
-
-    /* MUSIC */
-
-
-    musicButton.addEventListener(
-      "click",
-      function(){
-
-        if(music.paused){
-
-          music.play();
-
-          musicButton.textContent =
-            "♫";
-
-        }else{
-
-          music.pause();
-
-          musicButton.textContent =
-            "▶";
 
         }
 
-      }
-    );
 
+        const currentBottom =
+          window.scrollY +
+          window.innerHeight;
 
 
-    /* MENU */
+        const invitationBottom =
+          invitationView
+            .getBoundingClientRect()
+            .bottom +
+          window.scrollY;
 
 
-    function openMenu(){
+        /*
+        Stop when the end of the
+        invitation is reached.
+        */
 
-      stopAutoScroll();
+        if(
+          currentBottom >=
+          invitationBottom - 5
+        ){
 
-      sideMenu
-        .classList
-        .add("open");
+          stopAutoScroll();
 
-      menuOverlay
-        .classList
-        .add("show");
+          return;
 
-    }
+        }
 
 
-
-    function hideMenu(){
-
-      sideMenu
-        .classList
-        .remove("open");
-
-      menuOverlay
-        .classList
-        .remove("show");
-
-    }
-
-
-
-    menuButton.addEventListener(
-      "click",
-      openMenu
-    );
-
-
-    closeMenu.addEventListener(
-      "click",
-      hideMenu
-    );
-
-
-    menuOverlay.addEventListener(
-      "click",
-      hideMenu
-    );
-
-
-
-    /* VIEW SWITCHING */
-
-
-    function hideAllViews(){
-
-      invitationView
-        .classList
-        .remove("active");
-
-      giftsView
-        .classList
-        .remove("active");
-
-      rsvpView
-        .classList
-        .remove("active");
-
-    }
-
-
-
-    function showInvitation(){
-
-      stopAutoScroll();
-
-      hideAllViews();
-
-      invitationView
-        .classList
-        .add("active");
-
-    }
-
-
-
-    function showGifts(){
-
-      stopAutoScroll();
-
-      hideAllViews();
-
-      giftsView
-        .classList
-        .add("active");
-
-      window.scrollTo(
-        0,
-        0
-      );
-
-    }
-
-
-
-    function showRSVP(){
-
-      stopAutoScroll();
-
-      hideAllViews();
-
-      rsvpView
-        .classList
-        .add("active");
-
-      window.scrollTo(
-        0,
-        0
-      );
-
-    }
-
-
-
-    menuLinks.forEach(
-      function(link){
-
-        link.addEventListener(
-          "click",
-          function(){
-
-            stopAutoScroll();
-
-
-            const action =
-              this.dataset.action;
-
-
-            menuLinks.forEach(
-              function(item){
-
-                item
-                  .classList
-                  .remove("active");
-
-              }
-            );
-
-
-            this
-              .classList
-              .add("active");
-
-
-
-            if(action === "home"){
-
-              showInvitation();
-
-              hideMenu();
-
-              window.scrollTo(
-                0,
-                0
-              );
-
-            }
-
-
-
-            if(action === "invitation"){
-
-              showInvitation();
-
-              hideMenu();
-
-
-              setTimeout(
-                function(){
-
-                  document
-                    .getElementById(
-                      "invitationSection"
-                    )
-                    .scrollIntoView({
-                      behavior:"smooth",
-                      block:"start"
-                    });
-
-                },
-                100
-              );
-
-            }
-
-
-
-            if(action === "gifts"){
-
-              hideMenu();
-
-              showGifts();
-
-            }
-
-
-
-            if(action === "rsvp"){
-
-              hideMenu();
-
-              showRSVP();
-
-            }
-
-          }
+        window.scrollBy(
+          0,
+          1
         );
 
-      }
+
+      },
+      24
     );
 
+}
 
 
-    openGiftPageButton
-      .addEventListener(
-        "click",
+/* =========================================
+   OPEN INVITATION
+========================================= */
+
+openButton.addEventListener(
+  "click",
+  function(){
+
+
+    if(opened){
+      return;
+    }
+
+
+    opened = true;
+
+
+    envelope
+      .classList
+      .add("open");
+
+
+    /*
+    Music starts from the guest's tap.
+    This is important on iPhone.
+    */
+
+    music
+      .play()
+
+      .then(
         function(){
 
-          stopAutoScroll();
-
-          showGifts();
-
-
-          menuLinks.forEach(
-            function(item){
-
-              item
-                .classList
-                .remove("active");
-
-
-              if(
-                item.dataset.action ===
-                "gifts"
-              ){
-
-                item
-                  .classList
-                  .add("active");
-
-              }
-
-            }
-          );
+          musicButton
+            .classList
+            .add("show");
 
         }
+      )
+
+      .catch(
+        function(){}
       );
 
 
+    /*
+    Make the invitation visible.
+    */
 
-    /* STOP AUTO SCROLL WHEN USER MOVES */
-
-
-    window.addEventListener(
-      "touchmove",
+    setTimeout(
       function(){
 
-        if(autoScrolling){
-
-          stopAutoScroll();
-
-        }
+        app
+          .classList
+          .add("ready");
 
       },
-      {
-        passive:true
-      }
-    );
-
-
-    window.addEventListener(
-      "wheel",
-      function(){
-
-        if(autoScrolling){
-
-          stopAutoScroll();
-
-        }
-
-      },
-      {
-        passive:true
-      }
-    );
-
-
-
-    /* COUNTDOWN */
-
-
-    const eventDate =
-      new Date(
-        "2026-11-27T17:00:00-06:00"
-      )
-      .getTime();
-
-
-
-    function updateCountdown(){
-
-      const now =
-        new Date()
-          .getTime();
-
-
-      const distance =
-        eventDate - now;
-
-
-
-      if(distance <= 0){
-
-        document
-          .getElementById("days")
-          .textContent =
-          "00";
-
-        document
-          .getElementById("hours")
-          .textContent =
-          "00";
-
-        document
-          .getElementById("minutes")
-          .textContent =
-          "00";
-
-        document
-          .getElementById("seconds")
-          .textContent =
-          "00";
-
-        return;
-
-      }
-
-
-
-      const days =
-        Math.floor(
-          distance /
-          (
-            1000 *
-            60 *
-            60 *
-            24
-          )
-        );
-
-
-
-      const hours =
-        Math.floor(
-          (
-            distance %
-            (
-              1000 *
-              60 *
-              60 *
-              24
-            )
-          ) /
-          (
-            1000 *
-            60 *
-            60
-          )
-        );
-
-
-
-      const minutes =
-        Math.floor(
-          (
-            distance %
-            (
-              1000 *
-              60 *
-              60
-            )
-          ) /
-          (
-            1000 *
-            60
-          )
-        );
-
-
-
-      const seconds =
-        Math.floor(
-          (
-            distance %
-            (
-              1000 *
-              60
-            )
-          ) /
-          1000
-        );
-
-
-
-      document
-        .getElementById("days")
-        .textContent =
-        String(days)
-          .padStart(
-            2,
-            "0"
-          );
-
-
-      document
-        .getElementById("hours")
-        .textContent =
-        String(hours)
-          .padStart(
-            2,
-            "0"
-          );
-
-
-      document
-        .getElementById("minutes")
-        .textContent =
-        String(minutes)
-          .padStart(
-            2,
-            "0"
-          );
-
-
-      document
-        .getElementById("seconds")
-        .textContent =
-        String(seconds)
-          .padStart(
-            2,
-            "0"
-          );
-
-    }
-
-
-
-    updateCountdown();
-
-
-    setInterval(
-      updateCountdown,
       1000
     );
 
 
-  </script>
+    /*
+    Remove opening screen.
+    */
+
+    setTimeout(
+      function(){
+
+        opening
+          .classList
+          .add("gone");
+
+        window.scrollTo(
+          0,
+          0
+        );
+
+      },
+      2200
+    );
+
+
+    /*
+    Start automatically scrolling
+    a few seconds after opening.
+    */
+
+    setTimeout(
+      function(){
+
+        window.scrollTo(
+          0,
+          0
+        );
+
+        startAutoScroll();
+
+      },
+      6000
+    );
+
+
+  }
+);
+
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+musicButton.addEventListener(
+  "click",
+  function(){
+
+
+    if(music.paused){
+
+      music.play();
+
+      musicButton.textContent =
+        "♫";
+
+    }
+
+
+    else{
+
+      music.pause();
+
+      musicButton.textContent =
+        "▶";
+
+    }
+
+
+  }
+);
+
+
+/* =========================================
+   MENU
+========================================= */
+
+function openMenu(){
+
+  stopAutoScroll();
+
+  sideMenu
+    .classList
+    .add("open");
+
+  menuShade
+    .classList
+    .add("show");
+
+}
+
+
+function hideMenu(){
+
+  sideMenu
+    .classList
+    .remove("open");
+
+  menuShade
+    .classList
+    .remove("show");
+
+}
+
+
+menuButton.addEventListener(
+  "click",
+  openMenu
+);
+
+
+closeMenu.addEventListener(
+  "click",
+  hideMenu
+);
+
+
+menuShade.addEventListener(
+  "click",
+  hideMenu
+);
+
+
+/* =========================================
+   PAGE SWITCHING
+========================================= */
+
+function hideAllViews(){
+
+  invitationView
+    .classList
+    .remove("active");
+
+  giftsView
+    .classList
+    .remove("active");
+
+  rsvpView
+    .classList
+    .remove("active");
+
+}
+
+
+function showInvitation(){
+
+  stopAutoScroll();
+
+  hideAllViews();
+
+  invitationView
+    .classList
+    .add("active");
+
+}
+
+
+function showGifts(){
+
+  stopAutoScroll();
+
+  hideAllViews();
+
+  giftsView
+    .classList
+    .add("active");
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+}
+
+
+function showRSVP(){
+
+  stopAutoScroll();
+
+  hideAllViews();
+
+  rsvpView
+    .classList
+    .add("active");
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+}
+
+
+/* =========================================
+   MENU LINKS
+========================================= */
+
+menuLinks.forEach(
+  function(link){
+
+
+    link.addEventListener(
+      "click",
+      function(){
+
+
+        stopAutoScroll();
+
+
+        const action =
+          this.dataset.action;
+
+
+        menuLinks.forEach(
+          function(item){
+
+            item
+              .classList
+              .remove("active");
+
+          }
+        );
+
+
+        this
+          .classList
+          .add("active");
+
+
+        /*
+        HOME
+        */
+
+        if(action === "home"){
+
+          showInvitation();
+
+          hideMenu();
+
+          window.scrollTo(
+            0,
+            0
+          );
+
+        }
+
+
+        /*
+        INVITATION DATE AREA
+        */
+
+        if(action === "invitation"){
+
+          showInvitation();
+
+          hideMenu();
+
+
+          setTimeout(
+            function(){
+
+              document
+                .getElementById(
+                  "invitationSection"
+                )
+                .scrollIntoView({
+                  behavior:"smooth",
+                  block:"start"
+                });
+
+            },
+            100
+          );
+
+        }
+
+
+        /*
+        LLUVIA DE SOBRES
+        */
+
+        if(action === "gifts"){
+
+          hideMenu();
+
+          showGifts();
+
+        }
+
+
+        /*
+        RSVP
+        */
+
+        if(action === "rsvp"){
+
+          hideMenu();
+
+          showRSVP();
+
+        }
+
+
+      }
+    );
+
+
+  }
+);
+
+
+/* =========================================
+   LLUVIA BUTTON UNDER DRESS CODE
+========================================= */
+
+openGiftPageButton.addEventListener(
+  "click",
+  function(){
+
+
+    stopAutoScroll();
+
+
+    showGifts();
+
+
+    /*
+    Update highlighted menu option.
+    */
+
+    menuLinks.forEach(
+      function(item){
+
+
+        item
+          .classList
+          .remove("active");
+
+
+        if(
+          item.dataset.action ===
+          "gifts"
+        ){
+
+          item
+            .classList
+            .add("active");
+
+        }
+
+
+      }
+    );
+
+
+  }
+);
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+const eventDate =
+
+  new Date(
+    "2026-11-27T17:00:00-06:00"
+  ).getTime();
+
+
+function updateCountdown(){
+
+
+  let distance =
+
+    Math.max(
+      0,
+      eventDate -
+      Date.now()
+    );
+
+
+  const days =
+
+    Math.floor(
+      distance /
+      86400000
+    );
+
+
+  distance =
+    distance %
+    86400000;
+
+
+  const hours =
+
+    Math.floor(
+      distance /
+      3600000
+    );
+
+
+  distance =
+    distance %
+    3600000;
+
+
+  const minutes =
+
+    Math.floor(
+      distance /
+      60000
+    );
+
+
+  distance =
+    distance %
+    60000;
+
+
+  const seconds =
+
+    Math.floor(
+      distance /
+      1000
+    );
+
+
+  document
+    .getElementById("days")
+    .textContent =
+    String(days)
+      .padStart(
+        2,
+        "0"
+      );
+
+
+  document
+    .getElementById("hours")
+    .textContent =
+    String(hours)
+      .padStart(
+        2,
+        "0"
+      );
+
+
+  document
+    .getElementById("minutes")
+    .textContent =
+    String(minutes)
+      .padStart(
+        2,
+        "0"
+      );
+
+
+  document
+    .getElementById("seconds")
+    .textContent =
+    String(seconds)
+      .padStart(
+        2,
+        "0"
+      );
+
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+/* =========================================
+   STOP AUTO SCROLL
+   WHEN GUEST SCROLLS THEMSELVES
+========================================= */
+
+window.addEventListener(
+  "touchmove",
+  function(){
+
+    if(autoScrolling){
+
+      stopAutoScroll();
+
+    }
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+window.addEventListener(
+  "wheel",
+  function(){
+
+    if(autoScrolling){
+
+      stopAutoScroll();
+
+    }
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+</script>
 
 
 </body>
