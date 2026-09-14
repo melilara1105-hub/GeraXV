@@ -8,209 +8,183 @@
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background: #ead4b8;
-    font-family: Georgia, serif;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #ead4b8;
+  font-family: Georgia, serif;
 }
 
 /* OPENING SCREEN */
 #opening {
-    position: fixed;
-    inset: 0;
-    background: #ead4b8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 999;
-    transition: opacity 1s ease;
+  position: fixed;
+  inset: 0;
+  background: #ead4b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+  transition: opacity 1s ease;
 }
 
 .tap {
-    margin-bottom: 35px;
-    font-size: 17px;
-    letter-spacing: 3px;
-    color: #562b12;
+  margin-bottom: 35px;
+  font-size: 17px;
+  letter-spacing: 3px;
+  color: #562b12;
 }
 
 /* ENVELOPE */
 .envelope {
-    width: 330px;
-    height: 215px;
-    position: relative;
-    cursor: pointer;
-    perspective: 1200px;
+  width: 330px;
+  height: 215px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1200px;
 }
 
 /* BACK */
 .back {
-    position: absolute;
-    inset: 0;
-    background: #cda06c;
-    border-radius: 5px;
-    box-shadow: 0 15px 30px rgba(0,0,0,.18);
+  position: absolute;
+  inset: 0;
+  background: #cda06c;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.18);
 }
 
-/* CARD INSIDE */
+/* CARD */
 .card {
-    position: absolute;
-    width: 280px;
-    height: 175px;
-    left: 25px;
-    bottom: 15px;
-
-    background: #fffaf4;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    z-index: 2;
-
-    transition:
-        transform 1.4s cubic-bezier(.22,.61,.36,1),
-        opacity .8s ease;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+  position: absolute;
+  width: 280px;
+  height: 175px;
+  left: 25px;
+  bottom: 15px;
+  background: #fffaf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  transition: transform 1.4s cubic-bezier(.22,.61,.36,1);
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
 }
 
 .card .small {
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #a2764d;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #a2764d;
 }
 
 .card .title {
-    font-size: 35px;
-    font-style: italic;
-    color: #54280f;
-    margin-top: 8px;
+  font-size: 35px;
+  font-style: italic;
+  color: #54280f;
+  margin-top: 8px;
 }
 
 /* ENVELOPE FRONT */
 .left {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    border-top: 108px solid transparent;
-    border-bottom: 107px solid #c99a63;
-    border-right: 165px solid transparent;
-
-    z-index: 4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 108px solid transparent;
+  border-bottom: 107px solid #c99a63;
+  border-right: 165px solid transparent;
+  z-index: 4;
 }
 
 .right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    border-top: 108px solid transparent;
-    border-bottom: 107px solid #bf8e59;
-    border-left: 165px solid transparent;
-
-    z-index: 4;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-top: 108px solid transparent;
+  border-bottom: 107px solid #bf8e59;
+  border-left: 165px solid transparent;
+  z-index: 4;
 }
 
 .bottom {
-    position: absolute;
-    bottom: 0;
-
-    border-left: 165px solid transparent;
-    border-right: 165px solid transparent;
-    border-bottom: 125px solid #d3a872;
-
-    z-index: 5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-left: 165px solid transparent;
+  border-right: 165px solid transparent;
+  border-bottom: 125px solid #d3a872;
+  z-index: 5;
 }
 
 /* FLAP */
 .flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    border-left: 165px solid transparent;
-    border-right: 165px solid transparent;
-    border-top: 125px solid #dcb585;
-
-    transform-origin: top;
-    transition: transform .9s ease;
-
-    z-index: 6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 165px solid transparent;
+  border-right: 165px solid transparent;
+  border-top: 125px solid #dcb585;
+  transform-origin: top;
+  transition: transform .9s ease;
+  z-index: 6;
 }
 
-/* WAX SEAL */
+/* SEAL */
 .seal {
-    position: absolute;
-    width: 52px;
-    height: 52px;
-
-    left: 139px;
-    top: 82px;
-
-    border-radius: 50%;
-
-    background: #6b3517;
-    color: #f4ddbd;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 23px;
-
-    z-index: 8;
-
-    box-shadow: 0 3px 7px rgba(0,0,0,.25);
-
-    transition: opacity .4s ease;
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  left: 139px;
+  top: 82px;
+  border-radius: 50%;
+  background: #6b3517;
+  color: #f4ddbd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  z-index: 8;
+  box-shadow: 0 3px 7px rgba(0,0,0,.25);
+  transition: opacity .4s ease;
 }
 
-/* OPENING */
+/* OPEN STATE */
 .envelope.open .seal {
-    opacity: 0;
+  opacity: 0;
 }
 
 .envelope.open .flap {
-    transform: rotateX(180deg);
-    z-index: 1;
+  transform: rotateX(180deg);
+  z-index: 1;
 }
 
 .envelope.open .card {
-    transform: translateY(-155px);
+  transform: translateY(-155px);
 }
 
-/* CANVA CONTENT */
+/* INVITATION */
 #invitation {
-    opacity: 0;
-    visibility: hidden;
-
-    width: 100%;
-    min-height: 100vh;
-
-    transition: opacity 1.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  min-height: 100vh;
+  transition: opacity 1.3s ease;
 }
 
 #invitation.show {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* CANVA WEBSITE */
 iframe {
-    width: 100%;
-    height: 100vh;
-
-    border: none;
-
-    display: block;
+  width: 100%;
+  height: 100vh;
+  border: none;
+  display: block;
 }
 </style>
 </head>
@@ -218,51 +192,41 @@ iframe {
 <body>
 
 <audio id="music" loop preload="auto">
-    <source src="song.mp3" type="audio/mpeg">
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
-
 
 <div id="opening">
 
-    <div class="tap">
-        TOCA PARA ABRIR
+  <div class="tap">TOCA PARA ABRIR</div>
+
+  <div class="envelope" id="envelope">
+
+    <div class="back"></div>
+
+    <div class="card">
+      <div class="small">MIS QUINCE</div>
+      <div class="title">Cielito Lindo</div>
     </div>
 
-    <div class="envelope" id="envelope">
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
 
-        <div class="back"></div>
+    <div class="flap"></div>
 
-        <div class="card">
-            <div class="small">MIS QUINCE</div>
-            <div class="title">Cielito Lindo</div>
-        </div>
+    <div class="seal">15</div>
 
-        <div class="left"></div>
-        <div class="right"></div>
-        <div class="bottom"></div>
-
-        <div class="flap"></div>
-
-        <div class="seal">15</div>
-
-    </div>
-
+  </div>
 </div>
-
 
 <div id="invitation">
-
-    <iframe
-        src="https://tolindo.my.canva.site/"
-        allow="autoplay"
-        loading="eager">
-    </iframe>
-
+  <iframe
+    src="https://tolindo.my.canva.site/"
+    loading="eager">
+  </iframe>
 </div>
 
-
 <script>
-
 const envelope = document.getElementById("envelope");
 const opening = document.getElementById("opening");
 const invitation = document.getElementById("invitation");
@@ -270,41 +234,35 @@ const music = document.getElementById("music");
 
 let opened = false;
 
-envelope.addEventListener("click", async function() {
+envelope.addEventListener("click", function () {
 
-    if(opened) return;
-    opened = true;
+  if (opened) return;
+  opened = true;
 
-    /* MUSIC STARTS FROM THEIR TAP */
-    try {
-        await music.play();
-    } catch(err) {
-        console.log(err);
-    }
+  /* OPEN ENVELOPE FIRST */
+  envelope.classList.add("open");
 
-    /* ENVELOPE OPENS */
-    envelope.classList.add("open");
+  /* TRY MUSIC, BUT DON'T WAIT FOR IT */
+  music.play().catch(function () {
+    console.log("Music file is not ready yet.");
+  });
 
-    /* LET CARD SLIDE OUT */
-    setTimeout(function() {
+  /* SHOW CANVA INVITATION */
+  setTimeout(function () {
+    invitation.classList.add("show");
+  }, 1500);
 
-        invitation.classList.add("show");
+  /* FADE AWAY ENVELOPE */
+  setTimeout(function () {
+    opening.style.opacity = "0";
 
-    }, 1500);
+    setTimeout(function () {
+      opening.style.display = "none";
+    }, 1000);
 
-    /* REMOVE ENVELOPE */
-    setTimeout(function() {
-
-        opening.style.opacity = "0";
-
-        setTimeout(function() {
-            opening.style.display = "none";
-        }, 1000);
-
-    }, 2400);
+  }, 2400);
 
 });
-
 </script>
 
 </body>
