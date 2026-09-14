@@ -1,261 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis Quince — Geraldine Romero</title>
 
-<title>
-Mis Quince — Geraldine Romero
-</title>
-
-
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-
-<link
-href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
-rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
-
-/* =========================================
-   COLORS
-========================================= */
-
 :root{
-
   --tan:#c99d67;
   --tan-dark:#986436;
-
   --cream:#ead1ad;
-  --cream-light:#f7e7ce;
-
-  --paper:#fffaf3;
-
+  --light:#fffaf3;
   --brown:#4a230f;
   --gold:#b77b3b;
-
   --dark:#160a04;
-  --white:#fffaf3;
-
 }
-
-
-/* =========================================
-   BASIC
-========================================= */
 
 *{
-
   box-sizing:border-box;
-
 }
 
+html{
+  scroll-behavior:smooth;
+}
 
 html,
 body{
-
   margin:0;
   padding:0;
-
 }
-
-
-html{
-
-  scroll-behavior:smooth;
-
-}
-
 
 body{
-
-  font-family:
-  "Cormorant Garamond",
-  serif;
-
-  background:#ead2ae;
-
+  font-family:"Cormorant Garamond",serif;
+  background:var(--cream);
   color:var(--brown);
-
   overflow-x:hidden;
-
 }
-
 
 img{
-
   display:block;
-
   max-width:100%;
-
 }
-
 
 button,
 a{
-
   font:inherit;
-
-  -webkit-tap-highlight-color:
-  transparent;
-
+  -webkit-tap-highlight-color:transparent;
 }
-
 
 button{
-
   cursor:pointer;
-
 }
-
 
 .script{
-
-  font-family:
-  "Great Vibes",
-  cursive;
-
+  font-family:"Great Vibes",cursive;
 }
 
 
-/* =========================================
-   VERY IMPORTANT:
+/* ==================================================
    SEPARATE PAGES
-========================================= */
+================================================== */
 
 .view{
-
   display:none !important;
-
 }
-
 
 .view.active{
-
   display:block !important;
-
 }
 
 
-/* =========================================
-   OPENING SCREEN
-========================================= */
+/* ==================================================
+   OPENING
+================================================== */
 
 #opening{
-
   position:fixed;
-
   inset:0;
-
   z-index:9999;
 
   min-height:100svh;
 
   display:flex;
-
   flex-direction:column;
-
-  align-items:center;
-
   justify-content:center;
+  align-items:center;
 
   padding:25px;
 
   background:
-
-  radial-gradient(
-    circle at 50% 15%,
-    rgba(255,255,255,.62),
-    transparent 30%
-  ),
-
-  #ecd6b8;
-
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255,255,255,.65),
+      transparent 30%
+    ),
+    #ecd6b8;
 
   transition:
-
-  opacity .9s ease,
-  visibility .9s ease;
-
+    opacity .9s ease,
+    visibility .9s ease;
 }
-
 
 #opening.gone{
-
   opacity:0;
-
   visibility:hidden;
-
   pointer-events:none;
-
 }
 
-
 .opening-small{
-
   margin-bottom:18px;
 
   font-size:13px;
-
   letter-spacing:.24em;
-
 }
 
-
 .opening-decor{
-
   margin-bottom:22px;
 
   font-size:23px;
-
   letter-spacing:10px;
-
 }
 
 
-/* =========================================
+/* ==================================================
    ENVELOPE
-========================================= */
+================================================== */
 
 .envelope{
+  position:relative;
 
   width:min(86vw,370px);
-
-  aspect-ratio:1.53 / 1;
-
-  position:relative;
+  aspect-ratio:1.53/1;
 
   perspective:1200px;
 
   filter:
-
-  drop-shadow(
-    0 20px 24px
-    rgba(79,42,19,.22)
-  );
-
+    drop-shadow(
+      0 20px 24px
+      rgba(79,42,19,.22)
+    );
 }
 
-
 .envelope-back{
-
   position:absolute;
-
   inset:0;
 
   background:#c99561;
@@ -263,12 +156,9 @@ button{
   border-radius:8px;
 
   z-index:1;
-
 }
 
-
 .invite-card{
-
   position:absolute;
 
   left:7%;
@@ -277,3017 +167,1673 @@ button{
 
   height:82%;
 
-  background:
-
-  radial-gradient(
-    circle,
-    rgba(173,118,61,.12) 2px,
-    transparent 3px
-  ),
-
-  var(--paper);
-
-
-  background-size:
-  26px 26px;
-
-
-  border:
-  1px solid
-  rgba(74,33,13,.2);
-
-
   display:flex;
-
   flex-direction:column;
-
-  align-items:center;
-
   justify-content:center;
+  align-items:center;
 
   text-align:center;
 
+  background:
+    radial-gradient(
+      circle,
+      rgba(173,118,61,.12) 2px,
+      transparent 3px
+    ),
+    var(--light);
+
+  background-size:26px 26px;
+
+  border:1px solid rgba(74,33,13,.2);
+
   z-index:2;
 
-
   transition:
-
-  transform
-  1.3s
-  cubic-bezier(.2,.75,.2,1);
-
+    transform 1.3s
+    cubic-bezier(.2,.75,.2,1);
 }
 
-
 .invite-card::before{
-
-  content:
-  "✿  ❦  ✿";
+  content:"✿  ❦  ✿";
 
   margin-bottom:10px;
 
   letter-spacing:6px;
-
 }
-
 
 .invite-card-small{
-
   font-size:12px;
-
   letter-spacing:.2em;
-
 }
-
 
 .invite-card-title{
-
   margin-top:6px;
-
   font-size:38px;
-
 }
-
 
 .front-left,
 .front-right,
 .front-bottom,
 .flap{
-
   position:absolute;
-
 }
 
-
 .front-left{
-
   left:0;
   bottom:0;
 
   width:0;
   height:0;
 
-  border-top:
-  min(33vw,140px)
-  solid transparent;
-
-  border-bottom:
-  min(33vw,140px)
-  solid #c18d59;
-
-  border-right:
-  min(43vw,185px)
-  solid transparent;
+  border-top:min(33vw,140px) solid transparent;
+  border-bottom:min(33vw,140px) solid #c18d59;
+  border-right:min(43vw,185px) solid transparent;
 
   z-index:4;
-
 }
 
-
 .front-right{
-
   right:0;
   bottom:0;
 
   width:0;
   height:0;
 
-  border-top:
-  min(33vw,140px)
-  solid transparent;
-
-  border-bottom:
-  min(33vw,140px)
-  solid #b97f4c;
-
-  border-left:
-  min(43vw,185px)
-  solid transparent;
+  border-top:min(33vw,140px) solid transparent;
+  border-bottom:min(33vw,140px) solid #b97f4c;
+  border-left:min(43vw,185px) solid transparent;
 
   z-index:4;
-
 }
 
-
 .front-bottom{
-
   left:0;
   bottom:0;
 
   width:0;
   height:0;
 
-  border-left:
-  min(43vw,185px)
-  solid transparent;
-
-  border-right:
-  min(43vw,185px)
-  solid transparent;
-
-  border-bottom:
-  min(34vw,145px)
-  solid #d4a570;
+  border-left:min(43vw,185px) solid transparent;
+  border-right:min(43vw,185px) solid transparent;
+  border-bottom:min(34vw,145px) solid #d4a570;
 
   z-index:5;
-
 }
 
-
 .flap{
-
   left:0;
   top:0;
 
   width:0;
   height:0;
 
-  border-left:
-  min(43vw,185px)
-  solid transparent;
+  border-left:min(43vw,185px) solid transparent;
+  border-right:min(43vw,185px) solid transparent;
+  border-top:min(34vw,145px) solid #ddb681;
 
-  border-right:
-  min(43vw,185px)
-  solid transparent;
+  transform-origin:top center;
 
-  border-top:
-  min(34vw,145px)
-  solid #ddb681;
-
-
-  transform-origin:
-  top center;
-
-
-  transition:
-
-  transform .8s ease;
-
+  transition:transform .8s ease;
 
   z-index:6;
-
 }
 
-
 .seal{
-
   position:absolute;
 
   left:50%;
   top:42%;
 
-  transform:
-  translate(-50%,-50%);
-
+  transform:translate(-50%,-50%);
 
   width:62px;
   height:62px;
 
-
   display:grid;
-
   place-items:center;
-
 
   border-radius:50%;
 
-
   background:#71391b;
-
   color:#f5dfbd;
 
-
-  border:
-
-  3px double
-  rgba(255,236,205,.7);
-
+  border:3px double rgba(255,236,205,.7);
 
   font-size:23px;
-
   font-weight:700;
 
-
-  box-shadow:
-
-  0 4px 10px
-  rgba(0,0,0,.23);
-
+  box-shadow:0 4px 10px rgba(0,0,0,.23);
 
   z-index:8;
 
-
   transition:.35s ease;
-
 }
-
 
 #openButton{
-
   position:absolute;
-
   inset:-15px;
 
+  background:transparent;
   border:0;
 
-  background:transparent;
-
   z-index:50;
-
 }
-
 
 .envelope.open .flap{
-
-  transform:
-  rotateX(180deg);
-
+  transform:rotateX(180deg);
   z-index:1;
-
 }
 
-
 .envelope.open .seal{
-
   opacity:0;
 
   transform:
-
-  translate(-50%,-50%)
-  scale(.5);
-
+    translate(-50%,-50%)
+    scale(.5);
 }
-
 
 .envelope.open .invite-card{
-
-  transform:
-  translateY(-65%);
-
+  transform:translateY(-65%);
 }
 
-
 .tap-text{
-
   margin-top:27px;
 
   font-size:14px;
-
   letter-spacing:.17em;
-
 }
 
 
-/* =========================================
-   APP
-========================================= */
+/* ==================================================
+   WEBSITE
+================================================== */
 
 #app{
-
   width:min(100%,760px);
-
   min-height:100vh;
 
   margin:auto;
 
-  background:var(--paper);
+  background:var(--light);
 
   opacity:0;
 
-  transition:
-  opacity 1s ease;
-
+  transition:opacity 1s ease;
 }
-
 
 #app.ready{
-
   opacity:1;
-
 }
 
 
-/* =========================================
+/* ==================================================
    TOP BAR
-========================================= */
+================================================== */
 
 .topbar{
-
   position:sticky;
 
   top:0;
 
   z-index:3000;
 
-
   width:100%;
-
   height:68px;
 
-
   display:flex;
-
+  justify-content:flex-end;
   align-items:center;
 
-  justify-content:flex-end;
+  padding:0 20px;
 
+  background:rgba(255,250,243,.96);
 
-  padding:
+  backdrop-filter:blur(9px);
 
-  0 20px;
-
-
-  background:
-
-  rgba(255,250,243,.96);
-
-
-  backdrop-filter:
-  blur(9px);
-
-
-  border-bottom:
-
-  1px solid
-  rgba(73,34,14,.08);
-
+  border-bottom:1px solid rgba(73,34,14,.08);
 }
 
-
 .menu-button{
-
   width:48px;
-
   height:48px;
 
-
-  border:0;
-
-  background:transparent;
-
-
   display:flex;
-
   flex-direction:column;
-
   justify-content:center;
-
   align-items:center;
 
   gap:6px;
 
+  border:0;
+  background:transparent;
 }
 
-
 .menu-button span{
-
   width:31px;
-
   height:2px;
-
-  border-radius:10px;
 
   background:var(--brown);
 
+  border-radius:10px;
 }
 
 
-/* =========================================
-   SLIDE MENU
-========================================= */
+/* ==================================================
+   SIDE MENU
+================================================== */
 
 #menuShade{
-
   position:fixed;
-
   inset:0;
 
   z-index:4998;
 
-
-  background:
-  rgba(0,0,0,.28);
-
+  background:rgba(0,0,0,.28);
 
   opacity:0;
 
   pointer-events:none;
 
-
   transition:.35s ease;
-
 }
-
 
 #menuShade.show{
-
   opacity:1;
-
   pointer-events:auto;
-
 }
 
-
 #sideMenu{
-
   position:fixed;
 
   top:0;
   right:0;
 
-
   width:min(82vw,360px);
-
   height:100svh;
-
 
   z-index:4999;
 
-
   padding:
+    max(25px,env(safe-area-inset-top))
+    32px
+    40px;
 
-  max(
-    25px,
-    env(safe-area-inset-top)
-  )
+  background:var(--light);
 
-  32px
-  40px;
-
-
-  background:
-  var(--paper);
-
-
-  transform:
-  translateX(105%);
-
+  transform:translateX(105%);
 
   transition:
-
-  transform
-  .42s
-  cubic-bezier(.2,.8,.2,1);
-
+    transform .42s
+    cubic-bezier(.2,.8,.2,1);
 
   box-shadow:
-
-  -15px 0 35px
-  rgba(0,0,0,.12);
-
+    -15px 0 35px
+    rgba(0,0,0,.12);
 }
-
 
 #sideMenu.open{
-
-  transform:
-  translateX(0);
-
+  transform:translateX(0);
 }
 
-
 .close-menu{
-
   display:block;
 
   width:48px;
-
   height:48px;
 
-
   margin-left:auto;
-
   margin-bottom:33px;
 
-
   border:0;
-
   background:transparent;
-
 
   color:var(--brown);
 
-
   font-size:45px;
-
   line-height:1;
-
 }
 
-
 .menu-decoration{
-
   margin-bottom:30px;
 
   font-size:19px;
-
   letter-spacing:8px;
-
 }
 
-
 .menu-link{
-
   display:block;
 
   width:100%;
 
-
-  padding:
-
-  14px 0;
-
+  padding:14px 0;
 
   border:0;
 
   background:transparent;
 
+  color:#7b6a5d;
 
   text-align:left;
 
-
-  color:#7b6a5d;
-
-
-  font-size:32px;
-
+  font-size:31px;
 }
-
 
 .menu-link.active{
-
   color:var(--brown);
-
   font-weight:600;
-
 }
 
-
 .menu-bottom{
-
   position:absolute;
 
   left:32px;
   right:32px;
   bottom:40px;
 
-
   padding-top:20px;
 
-
-  border-top:
-
-  1px solid
-  rgba(73,34,14,.15);
-
+  border-top:1px solid rgba(73,34,14,.15);
 
   text-align:center;
 
   font-size:15px;
-
 }
 
 
-/* =========================================
+/* ==================================================
    PAPEL PICADO
-========================================= */
+================================================== */
 
 .papel{
-
   height:79px;
-
 
   display:grid;
 
-  grid-template-columns:
-  repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
 
   overflow:hidden;
 
-
-  background:
-  var(--cream);
-
+  background:var(--cream);
 }
 
-
 .papel-piece{
+  position:relative;
 
   height:69px;
 
-
   margin-right:2px;
 
+  background:var(--brown);
 
-  position:relative;
-
-
-  background:
-  var(--brown);
-
-
-  clip-path:
-
-  polygon(
-
+  clip-path:polygon(
     0 0,
-
     100% 0,
-
     100% 82%,
-
     88% 82%,
-
     82% 100%,
-
     71% 82%,
-
     60% 82%,
-
     50% 100%,
-
     40% 82%,
-
     29% 82%,
-
     18% 100%,
-
     12% 82%,
-
     0 82%
-
   );
-
 }
-
 
 .papel-piece:nth-child(even){
-
-  background:
-  #f8ead4;
-
+  background:#f8ead4;
 }
-
 
 .papel-piece::before{
-
   content:"✿";
 
-
   position:absolute;
 
-
   left:50%;
-
   top:8px;
 
+  transform:translateX(-50%);
 
-  transform:
-  translateX(-50%);
-
+  color:var(--tan);
 
   font-size:24px;
-
-
-  color:
-  var(--tan);
-
 }
 
-
 .papel-piece::after{
-
-  content:
-  "◦ ✦ ◦";
-
+  content:"◦ ✦ ◦";
 
   position:absolute;
 
-
   left:50%;
-
   bottom:18px;
 
-
-  transform:
-  translateX(-50%);
-
+  transform:translateX(-50%);
 
   white-space:nowrap;
 
+  color:var(--tan);
 
   font-size:12px;
-
   letter-spacing:4px;
-
-
-  color:
-  var(--tan);
-
 }
-
 
 .papel-piece:nth-child(even)::before,
 .papel-piece:nth-child(even)::after{
-
-  color:
-  var(--brown);
-
+  color:var(--brown);
 }
 
 
-/* =========================================
-   DECORATION
-========================================= */
+/* ==================================================
+   GENERAL SECTIONS
+================================================== */
 
 .section{
-
   position:relative;
 
-  padding:
-  72px 23px;
+  padding:72px 23px;
 
   text-align:center;
 
   overflow:hidden;
-
 }
-
 
 .tan{
+  color:var(--light);
 
-  color:
-  var(--white);
-
-
-  background-color:
-  var(--tan);
-
+  background-color:var(--tan);
 
   background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,.13) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 0 100%,
+      rgba(255,255,255,.08) 0 9px,
+      transparent 10px
+    );
 
-  radial-gradient(
-    circle at 50% 50%,
-    rgba(255,255,255,.13) 0 3px,
-    transparent 4px
-  ),
-
-  radial-gradient(
-    circle at 0 100%,
-    rgba(255,255,255,.08) 0 9px,
-    transparent 10px
-  ),
-
-  radial-gradient(
-    circle at 100% 0,
-    rgba(255,255,255,.08) 0 9px,
-    transparent 10px
-  );
-
-
-  background-size:
-  52px 52px;
-
+  background-size:52px 52px;
 }
-
 
 .cream{
-
-  background-color:
-  var(--cream);
-
+  background-color:var(--cream);
 
   background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(102,58,22,.09) 0 3px,
+      transparent 4px
+    );
 
-  radial-gradient(
-    circle at 50% 50%,
-    rgba(102,58,22,.09) 0 3px,
-    transparent 4px
-  ),
-
-  radial-gradient(
-    circle at 0 100%,
-    rgba(102,58,22,.06) 0 9px,
-    transparent 10px
-  );
-
-
-  background-size:
-  55px 55px;
-
+  background-size:55px 55px;
 }
-
 
 .white{
-
   background:
-
-  repeating-linear-gradient(
-
-    45deg,
-
-    rgba(107,63,28,.025) 0,
-
-    rgba(107,63,28,.025) 1px,
-
-    transparent 1px,
-
-    transparent 5px
-
-  ),
-
-  var(--paper);
-
+    repeating-linear-gradient(
+      45deg,
+      rgba(107,63,28,.025) 0,
+      rgba(107,63,28,.025) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    var(--light);
 }
 
-
 .side-vine{
-
   position:absolute;
 
   top:20px;
   bottom:20px;
 
-
   width:30px;
 
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
 
   overflow:hidden;
-
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:
-  space-around;
-
 
   font-size:28px;
 
   opacity:.35;
-
 }
-
 
 .side-vine.left{
-
   left:5px;
-
 }
-
 
 .side-vine.right{
-
   right:5px;
-
 }
-
 
 .side-vine.right span{
-
-  transform:
-  scaleX(-1);
-
+  transform:scaleX(-1);
 }
-
 
 .flowers{
-
-  margin:
-  18px 0;
-
+  margin:18px 0;
 
   font-size:25px;
-
   letter-spacing:8px;
-
 }
-
 
 .large-flowers{
-
-  margin:
-  25px 0;
-
+  margin:25px 0;
 
   font-size:38px;
-
   letter-spacing:12px;
-
 }
 
-
 .divider{
-
   display:flex;
-
   align-items:center;
-
 
   gap:12px;
 
-
   max-width:240px;
 
-
-  margin:
-  24px auto;
-
+  margin:24px auto;
 }
-
 
 .divider::before,
 .divider::after{
-
   content:"";
-
 
   flex:1;
 
-
   height:1px;
 
-
-  background:
-  currentColor;
-
+  background:currentColor;
 
   opacity:.5;
-
 }
 
 
-/* =========================================
+/* ==================================================
    HERO
-========================================= */
+================================================== */
 
 .hero-frame{
+  position:relative;
 
-  width:
-  min(92%,650px);
-
-
+  width:min(92%,650px);
   min-height:620px;
-
 
   margin:auto;
 
+  padding:68px 27px 46px;
 
-  padding:
-
-  68px 27px 46px;
-
-
-  border:
-
-  4px solid
-  currentColor;
-
-
+  border:4px solid currentColor;
   border-bottom:0;
 
-
   border-radius:
-
-  48% 48% 0 0
-  /
-  18% 18% 0 0;
-
-
-  position:relative;
-
+    48% 48% 0 0 /
+    18% 18% 0 0;
 }
 
-
 .hero-frame::before{
-
   content:"";
-
 
   position:absolute;
 
+  inset:11px 11px 0;
 
-  inset:
-
-  11px 11px 0;
-
-
-  border:
-
-  1px solid
-  currentColor;
-
-
+  border:1px solid currentColor;
   border-bottom:0;
 
-
   border-radius:
-
-  48% 48% 0 0
-  /
-  18% 18% 0 0;
-
+    48% 48% 0 0 /
+    18% 18% 0 0;
 
   opacity:.55;
-
 }
-
 
 .hero-title{
-
-  margin:
-
-  15px 0 26px;
-
+  margin:15px 0 26px;
 
   font-size:61px;
-
   line-height:1;
-
 }
 
-
 .hero-copy{
-
   max-width:530px;
 
   margin:auto;
 
-
   font-size:20px;
-
   line-height:1.45;
-
 }
-
 
 .quince-title{
-
-  margin:
-
-  32px 0 15px;
-
+  margin:32px 0 15px;
 
   font-size:76px;
-
   line-height:.9;
-
 }
 
 
-/* =========================================
+/* ==================================================
    PHOTOS
-========================================= */
+================================================== */
 
 .circle-wrap{
-
-  width:
-  min(73vw,370px);
-
-
-  margin:auto;
-
-
   position:relative;
 
+  width:min(73vw,370px);
+
+  margin:auto;
 }
 
-
 .circle-photo{
-
   width:100%;
-
-
   aspect-ratio:1;
 
-
   object-fit:cover;
-
 
   border-radius:50%;
 
+  border:9px solid rgba(181,121,58,.27);
 
-  border:
-
-  9px solid
-  rgba(181,121,58,.27);
-
-
-  outline:
-
-  2px solid
-  rgba(73,34,14,.14);
-
+  outline:2px solid rgba(73,34,14,.14);
 }
-
 
 .circle-wrap::before{
-
-  content:
-  "✿ ❦";
-
+  content:"✿ ❦";
 
   position:absolute;
-
 
   top:-26px;
-
   left:-20px;
-
 
   font-size:39px;
 
-
-  transform:
-  rotate(-25deg);
-
+  transform:rotate(-25deg);
 }
 
-
 .circle-wrap::after{
-
-  content:
-  "❦ ✿";
-
+  content:"❦ ✿";
 
   position:absolute;
 
-
   bottom:-20px;
-
   right:-25px;
-
 
   font-size:39px;
 
-
-  transform:
-  rotate(-25deg);
-
+  transform:rotate(-25deg);
 }
-
 
 .person-name{
-
-  margin:
-
-  27px 0 5px;
-
+  margin:27px 0 5px;
 
   font-size:55px;
-
 }
 
-
 .arch-photo{
-
-  width:
-  min(80vw,430px);
-
+  width:min(80vw,430px);
 
   aspect-ratio:4/5;
 
-
   object-fit:cover;
 
-
   margin:auto;
 
+  border:9px solid rgba(255,255,255,.95);
 
-  border:
-
-  9px solid
-  rgba(255,255,255,.95);
-
-
-  outline:
-
-  2px solid
-  rgba(255,255,255,.5);
-
+  outline:2px solid rgba(255,255,255,.5);
 
   border-radius:
-
-  48% 48% 0 0
-  /
-  18% 18% 0 0;
-
+    48% 48% 0 0 /
+    18% 18% 0 0;
 }
 
 
-/* =========================================
-   DATE CARD
-========================================= */
+/* ==================================================
+   DATE
+================================================== */
 
 .date-card{
+  position:relative;
 
-  width:
-  min(94%,640px);
-
+  width:min(94%,640px);
 
   margin:auto;
 
-
-  padding:
-
-  65px 24px 48px;
-
+  padding:65px 24px 48px;
 
   background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.14) 3px,
+      transparent 4px
+    ),
+    var(--tan);
 
-  radial-gradient(
-    circle,
-    rgba(255,255,255,.14) 3px,
-    transparent 4px
-  ),
-
-  var(--tan);
-
-
-  background-size:
-  38px 38px;
-
+  background-size:38px 38px;
 
   border-radius:
-
-  48% 48% 0 0
-  /
-  16% 16% 0 0;
-
-
-  position:relative;
-
+    48% 48% 0 0 /
+    16% 16% 0 0;
 }
 
-
 .date-card::before{
-
   content:"";
-
 
   position:absolute;
 
-
   inset:12px;
 
-
-  border:
-
-  1px solid
-  rgba(255,255,255,.45);
-
+  border:1px solid rgba(255,255,255,.45);
 
   border-radius:
-
-  48% 48% 0 0
-  /
-  16% 16% 0 0;
-
+    48% 48% 0 0 /
+    16% 16% 0 0;
 }
-
 
 .month{
-
   font-size:30px;
-
   font-weight:700;
-
   letter-spacing:.09em;
-
 }
 
-
 .date-row{
-
   display:grid;
 
-
-  grid-template-columns:
-
-  1fr auto 1fr;
-
-
-  gap:14px;
-
+  grid-template-columns:1fr auto 1fr;
 
   align-items:center;
 
+  gap:14px;
 
-  margin:
-
-  15px 0;
-
+  margin:15px 0;
 }
-
 
 .date-side{
+  padding:7px 0;
 
-  padding:
-
-  7px 0;
-
-
-  border-top:
-
-  2px solid white;
-
-
-  border-bottom:
-
-  2px solid white;
-
+  border-top:2px solid white;
+  border-bottom:2px solid white;
 
   font-size:21px;
-
   font-weight:700;
-
 }
-
 
 .date-number{
-
   font-size:78px;
-
   line-height:1;
-
   font-weight:700;
-
 }
-
 
 .date-time{
-
   font-size:29px;
-
   font-weight:700;
-
 }
 
 
-/* =========================================
+/* ==================================================
    COUNTDOWN
-========================================= */
+================================================== */
 
 .count-title{
-
-  margin:
-
-  22px 0;
-
+  margin:22px 0;
 
   font-size:60px;
-
 }
 
-
 .countdown{
-
   max-width:620px;
-
 
   margin:auto;
 
-
   display:grid;
 
-
-  grid-template-columns:
-
-  repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
 
   gap:7px;
-
 }
-
 
 .count-number{
-
   font-size:44px;
-
   line-height:1;
-
 }
-
 
 .count-label{
-
   margin-top:8px;
 
-
   font-size:10px;
-
   letter-spacing:.08em;
-
 }
 
 
-/* =========================================
+/* ==================================================
    PARENTS
-========================================= */
+================================================== */
 
 .parents-title{
-
-  margin:
-
-  30px 0 17px;
-
+  margin:30px 0 17px;
 
   font-size:61px;
-
 }
 
-
 .parents{
-
   max-width:550px;
 
   margin:auto;
 
-
-  font-size:27px;
-
+  font-size:28px;
   font-weight:600;
-
 }
 
 
-/* =========================================
+/* ==================================================
    RECEPTION
-========================================= */
+================================================== */
 
 .reception-title{
-
-  margin:
-
-  0 0 8px;
-
+  margin:0 0 8px;
 
   font-size:67px;
-
 }
-
 
 .info-title{
-
-  margin:
-
-  20px 0 5px;
-
+  margin:20px 0 5px;
 
   font-size:29px;
-
   font-weight:700;
-
 }
-
 
 .info-text{
-
-  color:
-  var(--gold);
-
+  color:var(--gold);
 
   font-size:23px;
-
   line-height:1.3;
-
 }
 
-
 .location-button{
-
   display:inline-block;
 
+  margin:10px 0 20px;
 
-  margin:
+  padding:11px 31px;
 
-  10px 0 20px;
+  border:2px solid var(--brown);
 
+  border-radius:999px;
 
-  padding:
+  background:rgba(255,255,255,.48);
 
-  11px 31px;
-
-
-  border:
-
-  2px solid
-  var(--brown);
-
-
-  border-radius:
-  999px;
-
-
-  background:
-
-  rgba(255,255,255,.48);
-
-
-  color:
-  var(--brown);
-
+  color:var(--brown);
 
   text-decoration:none;
 
-
   font-size:23px;
-
   font-weight:700;
-
 }
-
 
 .dress{
-
   margin-top:25px;
 
-
   font-size:28px;
-
   font-weight:700;
-
 }
 
-
 .no-black{
-
   margin-top:10px;
 
-
-  color:
-  var(--gold);
-
+  color:var(--gold);
 
   font-size:27px;
 
+  text-decoration:underline;
 
-  text-decoration:
-  underline;
-
-
-  text-underline-offset:
-  6px;
-
+  text-underline-offset:6px;
 }
 
 
-/* =========================================
-   GIFT PAGE
-========================================= */
+/* ==================================================
+   LLUVIA DE SOBRES PAGE
+================================================== */
 
 .gift-page{
+  min-height:calc(100svh - 68px);
 
-  min-height:
-
-  calc(100svh - 68px);
-
-
-  background:
-  var(--cream);
-
+  background:var(--cream);
 }
 
-
-.special-inner{
-
+.gift-content{
   position:relative;
 
+  min-height:calc(100svh - 68px);
 
-  min-height:
-  calc(100svh - 68px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-
-  padding:
-
-  55px 26px 80px;
-
+  padding:55px 25px 80px;
 
   text-align:center;
 
-
   overflow:hidden;
 
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(90,46,15,.08) 0 3px,
+      transparent 4px
+    ),
+    var(--cream);
 
-  background-image:
-
-  radial-gradient(
-
-    circle at 50% 50%,
-
-    rgba(90,46,15,.08)
-    0 3px,
-
-    transparent 4px
-
-  );
-
-
-  background-size:
-
-  48px 48px;
-
+  background-size:48px 48px;
 }
 
+.gift-card{
+  width:min(100%,590px);
 
-.special-card{
+  padding:55px 28px;
 
-  max-width:610px;
+  background:rgba(255,250,243,.88);
 
-
-  margin:auto;
-
-
-  padding:
-
-  48px 26px;
-
-
-  background:
-
-  rgba(255,250,243,.84);
-
-
-  border:
-
-  1px solid
-  rgba(74,34,14,.14);
-
+  border:1px solid rgba(74,34,14,.14);
 
   border-radius:
-
-  160px 160px 16px 16px;
-
+    160px 160px 20px 20px;
 
   box-shadow:
-
-  0 12px 30px
-  rgba(75,38,14,.08);
-
+    0 12px 30px
+    rgba(75,38,14,.08);
 }
 
-
-.special-title{
-
-  margin:
-
-  10px 0 20px;
-
+.gift-title{
+  margin:8px 0 20px;
 
   font-size:63px;
-
   line-height:1;
-
 }
 
+.gift-text{
+  max-width:470px;
 
-.special-text{
+  margin:0 auto;
 
-  max-width:480px;
-
-
-  margin:
-
-  0 auto;
-
-
-  font-size:22px;
-
+  font-size:23px;
   line-height:1.5;
-
 }
 
-
-.envelope-icon{
-
+.gift-envelope{
   position:relative;
 
+  width:180px;
+  height:120px;
 
-  width:160px;
+  margin:38px auto;
 
-  height:108px;
+  background:#ead1ae;
 
-
-  margin:
-
-  34px auto 30px;
-
-
-  border:
-
-  3px solid
-  var(--brown);
-
-
-  background:
-  #ead1ae;
-
+  border:3px solid var(--brown);
 
   box-shadow:
+    9px 9px 0
+    rgba(186,126,65,.20);
 
-  8px 8px 0
-  rgba(186,126,65,.20);
-
+  overflow:hidden;
 }
 
-
-.envelope-icon::before{
-
+.gift-envelope::before{
   content:"";
 
-
   position:absolute;
-
 
   left:0;
-
   top:0;
 
-
   width:0;
-
   height:0;
 
-
-  border-left:
-
-  77px solid
-  transparent;
-
-
-  border-right:
-
-  77px solid
-  transparent;
-
-
-  border-top:
-
-  56px solid
-  #c9945f;
-
+  border-left:87px solid transparent;
+  border-right:87px solid transparent;
+  border-top:63px solid #c9945f;
 }
 
-
-.envelope-heart{
+.gift-envelope::after{
+  content:"♡";
 
   position:absolute;
 
-
   left:50%;
+  top:45%;
 
-  top:42%;
+  transform:translate(-50%,-50%);
 
+  color:var(--brown);
 
-  z-index:3;
-
-
-  transform:
-
-  translate(-50%,-50%);
-
-
-  font-size:25px;
-
+  font-size:29px;
+  font-weight:700;
 }
 
-
-.zelle-box{
-
-  max-width:420px;
-
-
-  margin:
-
-  30px auto 10px;
-
-
-  padding:
-
-  23px 18px;
-
-
-  border:
-
-  1px solid
-  rgba(73,34,14,.2);
-
-
-  border-radius:12px;
-
-
-  background:
-  #f7e8d1;
-
-}
-
-
-.zelle-label{
+.gift-note{
+  margin-top:27px;
 
   font-size:18px;
-
+  font-style:italic;
 }
 
 
-.zelle-number{
-
-  margin:
-
-  7px 0;
-
-
-  font-size:30px;
-
-  font-weight:700;
-
-}
-
-
-.copy-button{
-
-  margin-top:14px;
-
-
-  padding:
-
-  9px 25px;
-
-
-  border:
-
-  2px solid
-  var(--brown);
-
-
-  border-radius:
-  999px;
-
-
-  background:
-  transparent;
-
-
-  color:
-  var(--brown);
-
-
-  font-weight:700;
-
-}
-
-
-#copyNotice{
-
-  height:20px;
-
-
-  margin-top:10px;
-
-
-  color:
-  var(--gold);
-
-
-  font-size:15px;
-
-}
-
-
-/* =========================================
+/* ==================================================
    RSVP PAGE
-========================================= */
+================================================== */
 
 .rsvp-page{
+  min-height:calc(100svh - 68px);
 
-  min-height:
-
-  calc(100svh - 68px);
-
-
-  background:
-  #ead0ae;
-
+  background:#ead0ae;
 }
 
-
 .rsvp-content{
-
   position:relative;
 
+  min-height:calc(100svh - 68px);
 
-  min-height:
-
-  calc(100svh - 68px);
-
-
-  padding:
-
-  50px 25px 75px;
-
+  padding:50px 25px 75px;
 
   text-align:center;
 
-
   overflow:hidden;
-
 }
 
-
 .rsvp-photo-frame{
-
   position:relative;
 
-
-  width:
-  min(82vw,470px);
-
+  width:min(82vw,470px);
 
   margin:auto;
 
-
   padding:16px;
-
 }
 
-
 .rsvp-photo{
-
   width:100%;
-
 
   aspect-ratio:4/5;
 
-
   object-fit:cover;
 
+  object-position:center 65%;
 
-  /*
-  This picture has Geraldine lower in
-  the original image, so this helps
-  keep her visible inside the arch.
-  */
-
-  object-position:
-  center 66%;
-
-
-  border:
-
-  6px solid
-  var(--tan-dark);
-
+  border:6px solid var(--tan-dark);
 
   border-radius:
-
-  47% 47% 0 0
-  /
-  18% 18% 0 0;
-
+    47% 47% 0 0 /
+    18% 18% 0 0;
 }
 
-
 .rsvp-photo-frame::before{
-
-  content:
-  "✿ ✿ ✿ ✿ ✿ ✿ ✿";
-
+  content:"✿ ✿ ✿ ✿ ✿ ✿ ✿";
 
   position:absolute;
 
-
   left:50%;
-
   top:-4px;
 
-
-  transform:
-  translateX(-50%);
-
+  transform:translateX(-50%);
 
   width:110%;
 
-
-  color:
-  var(--tan-dark);
-
+  color:var(--tan-dark);
 
   text-align:center;
 
-
   font-size:21px;
-
   letter-spacing:4px;
-
 }
-
 
 .rsvp-title{
-
-  margin:
-
-  28px 0 12px;
-
+  margin:28px 0 12px;
 
   font-size:58px;
-
 }
-
 
 .rsvp-copy{
-
   max-width:470px;
 
-
-  margin:
-
-  0 auto 20px;
-
+  margin:0 auto 20px;
 
   font-size:21px;
-
   line-height:1.4;
-
 }
 
-
 .whatsapp-button{
-
   display:inline-block;
 
+  margin:10px auto;
 
-  margin:
+  padding:11px 25px;
 
-  10px auto;
+  border:2px solid var(--brown);
 
+  border-radius:999px;
 
-  padding:
+  background:rgba(255,250,243,.43);
 
-  11px 25px;
-
-
-  border:
-
-  2px solid
-  var(--brown);
-
-
-  border-radius:
-  999px;
-
-
-  background:
-
-  rgba(255,250,243,.43);
-
-
-  color:
-  var(--brown);
-
+  color:var(--brown);
 
   text-decoration:none;
 
-
   font-size:23px;
-
   font-weight:700;
-
 }
-
 
 .rsvp-bottom{
-
   min-height:280px;
 
+  padding:45px 30px;
 
-  padding:
-
-  45px 30px;
-
-
-  background:
-  var(--tan);
-
+  background:var(--tan);
 
   text-align:center;
-
 
   font-size:32px;
-
 }
-
 
 .rsvp-bottom .script{
-
   font-size:55px;
-
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
-
-.footer{
-
-  padding:
-
-  37px 20px;
-
-
-  background:
-  var(--dark);
-
-
-  color:white;
-
-
-  text-align:center;
-
-
-  font-size:14px;
-
-  letter-spacing:.1em;
-
-}
-
-
-.footer-decor{
-
-  margin-bottom:15px;
-
-
-  font-size:20px;
-
-  letter-spacing:8px;
-
-}
-
-
-/* =========================================
+/* ==================================================
    MUSIC BUTTON
-========================================= */
+================================================== */
 
 #musicButton{
-
   position:fixed;
 
-
   right:16px;
-
-  bottom:
-
-  calc(
-    18px +
-    env(safe-area-inset-bottom)
-  );
-
+  bottom:calc(18px + env(safe-area-inset-bottom));
 
   z-index:4000;
 
-
   width:49px;
-
   height:49px;
-
 
   display:none;
 
-
-  border:
-
-  1px solid
-  rgba(255,255,255,.65);
-
+  border:1px solid rgba(255,255,255,.65);
 
   border-radius:50%;
 
-
-  background:
-
-  rgba(73,34,14,.92);
-
+  background:rgba(73,34,14,.92);
 
   color:white;
 
-
   font-size:21px;
 
-
   box-shadow:
-
-  0 5px 18px
-  rgba(0,0,0,.18);
-
+    0 5px 18px
+    rgba(0,0,0,.18);
 }
-
 
 #musicButton.show{
-
   display:block;
-
 }
 
 
-/* =========================================
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer{
+  padding:37px 20px;
+
+  background:var(--dark);
+
+  color:white;
+
+  text-align:center;
+
+  font-size:14px;
+  letter-spacing:.1em;
+}
+
+.footer-decor{
+  margin-bottom:15px;
+
+  font-size:20px;
+  letter-spacing:8px;
+}
+
+
+/* ==================================================
    MOBILE
-========================================= */
+================================================== */
 
 @media(max-width:440px){
 
-
   .section{
-
-    padding:
-    58px 18px;
-
+    padding:58px 18px;
   }
-
 
   .hero-frame{
-
     min-height:585px;
 
-
-    padding:
-
-    62px 18px 40px;
-
+    padding:62px 18px 40px;
   }
-
 
   .hero-title{
-
     font-size:49px;
-
   }
-
 
   .hero-copy{
-
     font-size:18px;
-
   }
-
 
   .quince-title{
-
     font-size:64px;
-
   }
-
 
   .person-name{
-
     font-size:47px;
-
   }
-
 
   .date-number{
-
     font-size:67px;
-
   }
-
 
   .date-side{
-
     font-size:17px;
-
   }
-
 
   .count-number{
-
     font-size:35px;
-
   }
-
 
   .reception-title{
-
     font-size:58px;
-
   }
-
 
   .menu-link{
-
     font-size:30px;
-
   }
 
-
-  .special-title{
-
+  .gift-title{
     font-size:53px;
-
   }
 
+  .gift-text{
+    font-size:21px;
+  }
 
   .rsvp-title{
-
     font-size:50px;
-
   }
-
 
 }
 
-
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     MUSIC
-========================================= -->
+<!-- MUSIC -->
 
-<audio
-id="music"
-loop
-preload="auto">
-
-  <source
-  src="song.mp3"
-  type="audio/mpeg">
-
+<audio id="music" loop preload="auto">
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 
 
-<!-- =========================================
-     ENVELOPE OPENING
-========================================= -->
+<!-- OPENING -->
 
 <div id="opening">
 
-
   <div class="opening-small">
-
     UNA INVITACIÓN ESPECIAL
-
   </div>
-
 
   <div class="opening-decor">
-
     ✿ ❦ ✿
-
   </div>
 
+  <div class="envelope" id="envelope">
 
-  <div
-  class="envelope"
-  id="envelope">
+    <div class="envelope-back"></div>
 
+    <div class="invite-card">
 
-    <div
-    class="envelope-back">
-    </div>
-
-
-    <div
-    class="invite-card">
-
-
-      <div
-      class="invite-card-small">
-
+      <div class="invite-card-small">
         MIS QUINCE
-
       </div>
 
-
-      <div
-      class="invite-card-title script">
-
+      <div class="invite-card-title script">
         Cielito Lindo
-
       </div>
 
-
     </div>
 
+    <div class="front-left"></div>
+    <div class="front-right"></div>
+    <div class="front-bottom"></div>
+    <div class="flap"></div>
 
-    <div
-    class="front-left">
-    </div>
-
-
-    <div
-    class="front-right">
-    </div>
-
-
-    <div
-    class="front-bottom">
-    </div>
-
-
-    <div
-    class="flap">
-    </div>
-
-
-    <div
-    class="seal">
-
+    <div class="seal">
       15
-
     </div>
-
 
     <button
-    id="openButton"
-    aria-label="Abrir invitación">
+      id="openButton"
+      aria-label="Abrir invitación">
     </button>
 
-
   </div>
 
-
-  <div
-  class="tap-text">
-
+  <div class="tap-text">
     TOCA PARA ABRIR
-
   </div>
-
 
 </div>
 
 
 
-<!-- =========================================
-     MUSIC CONTROL
-========================================= -->
+<!-- MUSIC BUTTON -->
 
 <button
-id="musicButton"
-aria-label="Pausar música">
-
+  id="musicButton"
+  aria-label="Pausar música">
   ♫
-
 </button>
 
 
 
-<!-- =========================================
-     SIDE MENU
-========================================= -->
+<!-- MENU -->
 
-<div
-id="menuShade">
-</div>
+<div id="menuShade"></div>
 
-
-<aside
-id="sideMenu">
-
+<aside id="sideMenu">
 
   <button
-  class="close-menu"
-  id="closeMenu"
-  aria-label="Cerrar menú">
-
+    class="close-menu"
+    id="closeMenu"
+    aria-label="Cerrar menú">
     ×
-
   </button>
 
-
-  <div
-  class="menu-decoration">
-
+  <div class="menu-decoration">
     ✿ ❦ ✿
-
   </div>
 
-
   <button
-  class="menu-link active"
-  data-action="home">
-
+    class="menu-link active"
+    data-page="invitationView"
+    data-target="top">
     Inicio
-
   </button>
 
-
   <button
-  class="menu-link"
-  data-action="invitation">
-
+    class="menu-link"
+    data-page="invitationView"
+    data-target="invitationSection">
     Invitación
-
   </button>
 
-
   <button
-  class="menu-link"
-  data-action="gifts">
-
+    class="menu-link"
+    data-page="giftsView">
     Lluvia de sobres
-
   </button>
-
 
   <button
-  class="menu-link"
-  data-action="rsvp">
-
+    class="menu-link"
+    data-page="rsvpView">
     RSVP
-
   </button>
 
-
-  <div
-  class="menu-bottom">
-
+  <div class="menu-bottom">
     Geraldine Romero · XV
-
   </div>
-
 
 </aside>
 
 
 
-<!-- =========================================
-     WEBSITE
-========================================= -->
+<!-- APP -->
 
 <div id="app">
 
 
-
-<!-- =========================================
-     HEADER
-========================================= -->
-
-<header
-class="topbar">
-
+<header class="topbar">
 
   <button
-  class="menu-button"
-  id="menuButton"
-  aria-label="Abrir menú">
-
-
-    <span></span>
+    class="menu-button"
+    id="menuButton"
+    aria-label="Abrir menú">
 
     <span></span>
-
     <span></span>
-
+    <span></span>
 
   </button>
-
 
 </header>
 
 
 
-<!-- =========================================
-     PAGE 1:
-     INVITATION
-========================================= -->
+<!-- ==================================================
+     PAGE 1 — INVITACIÓN
+================================================== -->
 
 <div
-id="invitationView"
-class="view active">
-
+  id="invitationView"
+  class="view active">
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
 <section
-class="section tan"
-id="homeSection">
+  class="section tan"
+  id="homeSection">
 
-
-  <div
-  class="side-vine left">
-
+  <div class="side-vine left">
     <span>❧</span>
-
     <span>✿</span>
-
     <span>❦</span>
-
     <span>✿</span>
-
     <span>❧</span>
+  </div>
 
+  <div class="side-vine right">
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
   </div>
 
 
-  <div
-  class="side-vine right">
+  <div class="hero-frame">
 
-    <span>❧</span>
-
-    <span>✿</span>
-
-    <span>❦</span>
-
-    <span>✿</span>
-
-    <span>❧</span>
-
-  </div>
-
-
-  <div
-  class="hero-frame">
-
-
-    <div
-    class="flowers">
-
+    <div class="flowers">
       ✿ ❦ ✿ ❦ ✿
-
     </div>
 
-
-    <h1
-    class="script hero-title">
-
+    <h1 class="script hero-title">
       Cielito Lindo
-
     </h1>
 
-
-    <div
-    class="divider">
-
+    <div class="divider">
       ✿
-
     </div>
 
-
-    <p
-    class="hero-copy">
-
+    <p class="hero-copy">
       Con la bendición de Dios y el amor
       de mi familia, los invito a compartir
       conmigo este día tan especial.
-
     </p>
 
-
-    <div
-    class="large-flowers">
-
+    <div class="large-flowers">
       ❀ ❦ ❀
-
     </div>
 
-
-    <div
-    class="script quince-title">
-
+    <div class="script quince-title">
       Mis
       <br>
       Quince
-
     </div>
 
-
-    <div
-    class="flowers">
-
+    <div class="flowers">
       ✿ ❦ ✿ ❦ ✿
-
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<section
-class="section cream">
+<section class="section cream">
 
-
-  <div
-  class="side-vine left">
-
-    <span>✿</span>
-
-    <span>❧</span>
-
-    <span>✿</span>
-
-    <span>❦</span>
-
-  </div>
-
-
-  <div
-  class="side-vine right">
-
-    <span>✿</span>
-
-    <span>❧</span>
-
-    <span>✿</span>
-
-    <span>❦</span>
-
-  </div>
-
-
-  <div
-  class="flowers">
-
+  <div class="flowers">
     ❀ ✿ ❦ ✿ ❀
-
   </div>
 
-
-  <div
-  class="circle-wrap">
-
+  <div class="circle-wrap">
 
     <img
-
-    src="geraldine-portrait.jpg"
-
-    alt="Geraldine Romero"
-
-    class="circle-photo">
-
+      src="geraldine-portrait.jpg"
+      alt="Geraldine Romero"
+      class="circle-photo">
 
   </div>
 
-
-  <div
-  class="script person-name">
-
+  <div class="script person-name">
     Geraldine Romero
-
   </div>
 
-
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ❀ ❦ ❀
-
   </div>
-
 
 </section>
 
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
 <section
-class="section white"
-id="invitationSection">
+  class="section white"
+  id="invitationSection">
 
+  <div class="date-card">
 
-  <div
-  class="date-card">
-
-
-    <div
-    class="flowers">
-
+    <div class="flowers">
       ✿ ❦ ✿
-
     </div>
 
-
-    <div
-    class="month">
-
+    <div class="month">
       NOVIEMBRE
-
     </div>
 
+    <div class="date-row">
 
-    <div
-    class="date-row">
-
-
-      <div
-      class="date-side">
-
+      <div class="date-side">
         VIERNES
-
       </div>
 
-
-      <div
-      class="date-number">
-
+      <div class="date-number">
         27
-
       </div>
 
-
-      <div
-      class="date-side">
-
+      <div class="date-side">
         2026
-
       </div>
 
-
     </div>
 
-
-    <div
-    class="date-time">
-
+    <div class="date-time">
       A LAS 5:00 PM
-
     </div>
 
-
-    <div
-    class="flowers">
-
+    <div class="flowers">
       ❀ ❦ ❀
-
     </div>
-
 
   </div>
-
 
 </section>
 
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<section
-class="section cream">
+<section class="section cream">
 
-
-  <div
-  class="circle-wrap">
-
+  <div class="circle-wrap">
 
     <img
-
-    src="geraldine-blanket.jpg"
-
-    alt="Geraldine Romero"
-
-    class="circle-photo">
-
+      src="geraldine-blanket.jpg"
+      alt="Geraldine Romero"
+      class="circle-photo">
 
   </div>
 
-
-  <h2
-  class="script count-title">
-
+  <h2 class="script count-title">
     Solo faltan
-
   </h2>
 
-
-  <div
-  class="divider">
-
+  <div class="divider">
     ✿
-
   </div>
 
-
-  <div
-  class="countdown">
-
+  <div class="countdown">
 
     <div>
 
       <div
-      id="days"
-      class="count-number">
-
+        id="days"
+        class="count-number">
         00
-
       </div>
 
-      <div
-      class="count-label">
-
+      <div class="count-label">
         DÍAS
-
       </div>
 
     </div>
@@ -3296,18 +1842,13 @@ class="section cream">
     <div>
 
       <div
-      id="hours"
-      class="count-number">
-
+        id="hours"
+        class="count-number">
         00
-
       </div>
 
-      <div
-      class="count-label">
-
+      <div class="count-label">
         HORAS
-
       </div>
 
     </div>
@@ -3316,18 +1857,13 @@ class="section cream">
     <div>
 
       <div
-      id="minutes"
-      class="count-number">
-
+        id="minutes"
+        class="count-number">
         00
-
       </div>
 
-      <div
-      class="count-label">
-
+      <div class="count-label">
         MINUTOS
-
       </div>
 
     </div>
@@ -3336,274 +1872,163 @@ class="section cream">
     <div>
 
       <div
-      id="seconds"
-      class="count-number">
-
+        id="seconds"
+        class="count-number">
         00
-
       </div>
 
-      <div
-      class="count-label">
-
+      <div class="count-label">
         SEGUNDOS
-
       </div>
 
     </div>
 
-
   </div>
 
-
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ❀ ❦ ❀
-
   </div>
-
 
 </section>
 
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<section
-class="section tan">
+<section class="section tan">
 
-
-  <div
-  class="flowers">
-
+  <div class="flowers">
     ✿ ❦ ✿
-
   </div>
-
 
   <img
+    src="geraldine-15.jpg"
+    alt="Geraldine Romero"
+    class="arch-photo">
 
-  src="geraldine-15.jpg"
-
-  alt="Geraldine Romero"
-
-  class="arch-photo">
-
-
-  <h2
-  class="script parents-title">
-
+  <h2 class="script parents-title">
     Mis Padres
-
   </h2>
 
-
-  <div
-  class="flowers">
-
+  <div class="flowers">
     ❀ ✦ ❀
-
   </div>
 
-
-  <div
-  class="parents">
-
+  <div class="parents">
     Edith y Jesus Romero
-
   </div>
-
 
 </section>
 
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<section
-class="section white">
+<section class="section white">
 
-
-  <div
-  class="flowers">
-
+  <div class="flowers">
     ✿ ❦ ✿
-
   </div>
 
-
-  <h2
-  class="script reception-title">
-
+  <h2 class="script reception-title">
     Recepción
-
   </h2>
 
-
   <p>
-
     Da click para continuar
-
   </p>
 
-
   <a
-
-  class="location-button"
-
-  href="https://www.google.com/maps/search/?api=1&query=Vazquez+Ranch+14831+Quail+Ln+Terrell+TX+75160"
-
-  target="_blank"
-
-  rel="noopener">
-
+    class="location-button"
+    href="https://www.google.com/maps/search/?api=1&query=Vazquez+Ranch+14831+Quail+Ln+Terrell+TX+75160"
+    target="_blank"
+    rel="noopener">
 
     Ubicación
-
 
   </a>
 
 
-  <div
-  class="divider">
-
+  <div class="divider">
     ✿
-
   </div>
 
 
-  <div
-  class="info-title">
-
+  <div class="info-title">
     Vazquez Ranch
-
   </div>
 
-
-  <div
-  class="info-text">
-
+  <div class="info-text">
     14831 Quail Ln
-
     <br>
-
     Terrell, TX 75160
-
   </div>
 
 
-  <div
-  class="info-title">
-
+  <div class="info-title">
     Comida
-
   </div>
 
-
-  <div
-  class="info-text">
-
+  <div class="info-text">
     5:00 – 7:00 pm
-
   </div>
 
 
-  <div
-  class="info-title">
-
+  <div class="info-title">
     Baile
-
   </div>
 
-
-  <div
-  class="info-text">
-
+  <div class="info-text">
     9:00 pm
-
   </div>
 
 
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ❀ ❦ ❀
-
   </div>
 
 
-  <div
-  class="dress">
-
+  <div class="dress">
     Código de vestimenta
+  </div>
 
+  <div class="no-black">
+    Favor de no vestir color negro
   </div>
 
 
-  <div
-  class="no-black">
-
-    Favor de no llevar vestido negro
-
-  </div>
-
-
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ✿ ❦ ✿
-
   </div>
-
 
 </section>
 
 
 
-<footer
-class="footer">
+<footer class="footer">
 
-
-  <div
-  class="footer-decor">
-
+  <div class="footer-decor">
     ✿ ❦ ✿
-
   </div>
-
 
   GERALDINE ROMERO · MIS QUINCE · 27 NOV 2026
 
-
 </footer>
 
 
@@ -3611,402 +2036,217 @@ class="footer">
 
 
 
-<!-- =========================================
-     PAGE 2:
-     LLUVIA DE SOBRES
-========================================= -->
+<!-- ==================================================
+     PAGE 2 — LLUVIA DE SOBRES
+================================================== -->
 
 <div
-id="giftsView"
-class="view gift-page">
-
+  id="giftsView"
+  class="view gift-page">
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<div
-class="special-inner">
+<div class="gift-content">
 
-
-  <div
-  class="side-vine left">
-
+  <div class="side-vine left">
     <span>❧</span>
-
     <span>✿</span>
-
     <span>❦</span>
-
     <span>✿</span>
-
     <span>❧</span>
+  </div>
 
+  <div class="side-vine right">
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
+    <span>✿</span>
+    <span>❧</span>
   </div>
 
 
-  <div
-  class="side-vine right">
+  <div class="gift-card">
 
-    <span>❧</span>
-
-    <span>✿</span>
-
-    <span>❦</span>
-
-    <span>✿</span>
-
-    <span>❧</span>
-
-  </div>
-
-
-  <div
-  class="special-card">
-
-
-    <div
-    class="flowers">
-
+    <div class="flowers">
       ✿ ❦ ✿ ❦ ✿
-
     </div>
 
 
-    <h1
-    class="script special-title">
-
+    <h1 class="script gift-title">
       Lluvia de Sobres
-
     </h1>
 
 
-    <div
-    class="divider">
-
+    <div class="divider">
       ✿
-
     </div>
 
 
-    <p
-    class="special-text">
-
+    <p class="gift-text">
 
       Tu presencia es nuestro mejor regalo.
 
-
       <br><br>
 
-
-      Si deseas tener un detalle especial
-      con Geraldine en este día tan importante,
-      puedes hacerlo por medio de nuestra
-      lluvia de sobres.
-
+      Si deseas tener un detalle con Geraldine,
+      agradecemos tus muestras de cariño
+      en lluvia de sobres.
 
     </p>
 
 
-    <div
-    class="envelope-icon">
+    <div class="gift-envelope"></div>
 
 
-      <div
-      class="envelope-heart">
-
-        ♡
-
-      </div>
-
-
-    </div>
-
-
-    <p
-    class="special-text">
-
-
-      También puedes enviar tu regalo
-      por medio de Zelle.
-
-
-    </p>
-
-
-    <div
-    class="zelle-box">
-
-
-      <div
-      class="zelle-label">
-
-        Zelle
-
-      </div>
-
-
-      <div
-      class="zelle-number">
-
-        (469) 471-7515
-
-      </div>
-
-
-      <div>
-
-        Edith Romero
-
-      </div>
-
-
-      <button
-      class="copy-button"
-      id="copyZelle">
-
-        Copiar número
-
-      </button>
-
-
-      <div
-      id="copyNotice">
-      </div>
-
-
-    </div>
-
-
-    <div
-    class="large-flowers">
-
+    <div class="large-flowers">
       ❀ ❦ ❀
-
     </div>
 
 
-    <p
-    class="special-text">
+    <p class="gift-text">
 
-
-      Con cariño, agradecemos cada
-      muestra de amor hacia nuestra
-      quinceañera.
-
+      Gracias por acompañarnos
+      y ser parte de este día
+      tan especial.
 
     </p>
 
+
+    <div class="gift-note">
+      Con cariño, la familia Romero
+    </div>
 
   </div>
-
 
 </div>
 
 
 
-<footer
-class="footer">
+<footer class="footer">
 
-
-  <div
-  class="footer-decor">
-
+  <div class="footer-decor">
     ✿ ❦ ✿
-
   </div>
 
-
-  GRACIAS POR SER PARTE DE ESTE DÍA
-
+  GERALDINE ROMERO · MIS QUINCE
 
 </footer>
 
 
-
 </div>
 
 
 
-<!-- =========================================
-     PAGE 3:
-     RSVP
-========================================= -->
+<!-- ==================================================
+     PAGE 3 — RSVP
+================================================== -->
 
 <div
-id="rsvpView"
-class="view rsvp-page">
-
+  id="rsvpView"
+  class="view rsvp-page">
 
 
 <div class="papel">
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
   <div class="papel-piece"></div>
-
 </div>
 
 
 
-<div
-class="rsvp-content">
+<div class="rsvp-content">
 
-
-  <div
-  class="side-vine left">
-
+  <div class="side-vine left">
     <span>✿</span>
-
     <span>❧</span>
-
     <span>✿</span>
-
     <span>❦</span>
+  </div>
 
+  <div class="side-vine right">
+    <span>✿</span>
+    <span>❧</span>
+    <span>✿</span>
+    <span>❦</span>
   </div>
 
 
-  <div
-  class="side-vine right">
-
-    <span>✿</span>
-
-    <span>❧</span>
-
-    <span>✿</span>
-
-    <span>❦</span>
-
-  </div>
-
-
-  <div
-  class="flowers">
-
+  <div class="flowers">
     ✿ ❦ ✿ ❦ ✿
-
   </div>
 
 
-
-  <!-- NEW RSVP PHOTO -->
-
-  <div
-  class="rsvp-photo-frame">
-
+  <div class="rsvp-photo-frame">
 
     <img
-
-    src="geraldine-rsvp.jpg"
-
-    alt="Geraldine Romero"
-
-    class="rsvp-photo">
-
+      src="geraldine-rsvp.jpg"
+      alt="Geraldine Romero"
+      class="rsvp-photo">
 
   </div>
 
 
-
-  <h1
-  class="script rsvp-title">
-
+  <h1 class="script rsvp-title">
     Confirma tu asistencia
-
   </h1>
 
 
-  <div
-  class="divider">
-
+  <div class="divider">
     ✿
-
   </div>
 
 
-  <p
-  class="rsvp-copy">
-
+  <p class="rsvp-copy">
 
     Nos dará mucho gusto compartir
     este momento tan especial contigo.
 
-
   </p>
 
 
-  <p
-  class="rsvp-copy">
-
+  <p class="rsvp-copy">
 
     Haz click en el botón para confirmar
     tu asistencia por WhatsApp.
 
-
   </p>
 
 
-
   <a
-
-  class="whatsapp-button"
-
-  href="https://wa.me/14694717515?text=Me%20alegra%20recibir%20tu%20invitaci%C3%B3n%2C%20Confirmo%20mi%20asistencia%20para%20festejar%20ese%20gran%20d%C3%ADa.%20%F0%9F%A4%8E"
-
-  target="_blank"
-
-  rel="noopener">
-
+    class="whatsapp-button"
+    href="https://wa.me/14694717515?text=Me%20alegra%20recibir%20tu%20invitaci%C3%B3n%2C%20Confirmo%20mi%20asistencia%20para%20festejar%20ese%20gran%20d%C3%ADa.%20%F0%9F%A4%8E"
+    target="_blank"
+    rel="noopener">
 
     Confirma tu asistencia
-
 
   </a>
 
 
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ❀ ❦ ❀
-
   </div>
-
 
 </div>
 
 
 
-<div
-class="rsvp-bottom">
+<div class="rsvp-bottom">
 
-
-  <div
-  class="script">
-
+  <div class="script">
     Te esperamos para
-
   </div>
-
 
   compartir este momento
 
@@ -4014,32 +2254,20 @@ class="rsvp-bottom">
 
   especial
 
-
-  <div
-  class="large-flowers">
-
+  <div class="large-flowers">
     ✿ ❦ ✿
-
   </div>
-
 
 </div>
 
 
 
-<footer
-class="footer">
-
-
+<footer class="footer">
   GERALDINE ROMERO · MIS QUINCE
-
-
 </footer>
 
 
-
 </div>
-
 
 
 </div>
@@ -4048,1061 +2276,553 @@ class="footer">
 
 <script>
 
-
-/* =========================================
+/* ==================================================
    ELEMENTS
-========================================= */
+================================================== */
 
 const opening =
-document.getElementById(
-  "opening"
-);
-
+  document.getElementById("opening");
 
 const envelope =
-document.getElementById(
-  "envelope"
-);
-
+  document.getElementById("envelope");
 
 const openButton =
-document.getElementById(
-  "openButton"
-);
-
+  document.getElementById("openButton");
 
 const app =
-document.getElementById(
-  "app"
-);
-
+  document.getElementById("app");
 
 const music =
-document.getElementById(
-  "music"
-);
-
+  document.getElementById("music");
 
 const musicButton =
-document.getElementById(
-  "musicButton"
-);
-
-
-const sideMenu =
-document.getElementById(
-  "sideMenu"
-);
-
-
-const menuShade =
-document.getElementById(
-  "menuShade"
-);
-
+  document.getElementById("musicButton");
 
 const menuButton =
-document.getElementById(
-  "menuButton"
-);
-
+  document.getElementById("menuButton");
 
 const closeMenu =
-document.getElementById(
-  "closeMenu"
-);
+  document.getElementById("closeMenu");
 
+const sideMenu =
+  document.getElementById("sideMenu");
+
+const menuShade =
+  document.getElementById("menuShade");
 
 const invitationView =
-document.getElementById(
-  "invitationView"
-);
-
+  document.getElementById("invitationView");
 
 const giftsView =
-document.getElementById(
-  "giftsView"
-);
-
+  document.getElementById("giftsView");
 
 const rsvpView =
-document.getElementById(
-  "rsvpView"
-);
-
+  document.getElementById("rsvpView");
 
 const menuLinks =
-document.querySelectorAll(
-  ".menu-link"
-);
+  document.querySelectorAll(".menu-link");
 
 
-let opened =
-false;
+let opened = false;
 
 
-
-/* =========================================
-   OPEN INVITATION
-========================================= */
+/* ==================================================
+   OPEN ENVELOPE
+================================================== */
 
 openButton.addEventListener(
-
   "click",
-
   function(){
 
-
     if(opened){
-
       return;
-
     }
 
+    opened = true;
 
-    opened =
-    true;
-
-
-    envelope
-    .classList
-    .add("open");
+    envelope.classList.add("open");
 
 
+    /* MUSIC STARTS FROM THE TAP */
 
-    /*
-    Music has to start from
-    the original tap for iPhone.
-    */
-
-    music
-    .play()
+    music.play()
 
     .then(function(){
 
-
       musicButton
-      .classList
-      .add("show");
-
+        .classList
+        .add("show");
 
     })
 
     .catch(function(){});
 
 
-
     setTimeout(
-
       function(){
-
 
         app
-        .classList
-        .add("ready");
-
+          .classList
+          .add("ready");
 
       },
-
       1000
-
     );
 
 
-
     setTimeout(
-
       function(){
-
 
         opening
-        .classList
-        .add("gone");
+          .classList
+          .add("gone");
 
-
-        window
-        .scrollTo(
-          0,
-          0
-        );
-
+        window.scrollTo(0,0);
 
       },
-
       2200
-
     );
 
 
-
     setTimeout(
-
       function(){
-
 
         startAutoScroll();
 
-
       },
-
       7500
-
     );
 
-
   }
-
 );
 
 
-
-/* =========================================
-   MUSIC BUTTON
-========================================= */
+/* ==================================================
+   MUSIC CONTROL
+================================================== */
 
 musicButton.addEventListener(
-
   "click",
-
   function(){
 
-
-    if(
-      music.paused
-    ){
-
+    if(music.paused){
 
       music.play();
 
-
-      musicButton
-      .textContent =
-      "♫";
-
+      musicButton.textContent = "♫";
 
     }
-
 
     else{
 
-
       music.pause();
 
-
-      musicButton
-      .textContent =
-      "▶";
-
+      musicButton.textContent = "▶";
 
     }
 
-
   }
-
 );
 
 
-
-/* =========================================
-   MENU
-========================================= */
+/* ==================================================
+   MENU OPEN / CLOSE
+================================================== */
 
 function openMenu(){
 
-
   stopAutoScroll();
 
-
   sideMenu
-  .classList
-  .add("open");
-
+    .classList
+    .add("open");
 
   menuShade
-  .classList
-  .add("show");
-
+    .classList
+    .add("show");
 
 }
-
 
 
 function hideMenu(){
 
-
   sideMenu
-  .classList
-  .remove("open");
-
+    .classList
+    .remove("open");
 
   menuShade
-  .classList
-  .remove("show");
-
+    .classList
+    .remove("show");
 
 }
 
 
-
-menuButton
-.addEventListener(
-
+menuButton.addEventListener(
   "click",
-
   openMenu
-
 );
 
 
-closeMenu
-.addEventListener(
-
+closeMenu.addEventListener(
   "click",
-
   hideMenu
-
 );
 
 
-menuShade
-.addEventListener(
-
+menuShade.addEventListener(
   "click",
-
   hideMenu
-
 );
 
 
-
-/* =========================================
-   HIDE ALL PAGES
-========================================= */
+/* ==================================================
+   PAGE SWITCHING
+================================================== */
 
 function hideAllViews(){
 
-
   invitationView
-  .classList
-  .remove("active");
-
+    .classList
+    .remove("active");
 
   giftsView
-  .classList
-  .remove("active");
-
-
-  rsvpView
-  .classList
-  .remove("active");
-
-
-}
-
-
-
-/* =========================================
-   INVITATION PAGE
-========================================= */
-
-function showInvitation(){
-
-
-  stopAutoScroll();
-
-
-  hideAllViews();
-
-
-  invitationView
-  .classList
-  .add("active");
-
-
-}
-
-
-
-/* =========================================
-   GIFT PAGE
-========================================= */
-
-function showGifts(){
-
-
-  stopAutoScroll();
-
-
-  hideAllViews();
-
-
-  giftsView
-  .classList
-  .add("active");
-
-
-  window
-  .scrollTo(
-    0,
-    0
-  );
-
-
-}
-
-
-
-/* =========================================
-   RSVP PAGE
-========================================= */
-
-function showRSVP(){
-
-
-  stopAutoScroll();
-
-
-  hideAllViews();
-
+    .classList
+    .remove("active");
 
   rsvpView
-  .classList
-  .add("active");
-
-
-  window
-  .scrollTo(
-    0,
-    0
-  );
-
+    .classList
+    .remove("active");
 
 }
 
 
+function showPage(pageId){
 
-/* =========================================
+  stopAutoScroll();
+
+  hideAllViews();
+
+  const page =
+    document.getElementById(pageId);
+
+  page
+    .classList
+    .add("active");
+
+}
+
+
+/* ==================================================
    MENU LINKS
-========================================= */
+================================================== */
 
-menuLinks
-.forEach(
-
+menuLinks.forEach(
   function(link){
 
-
-    link
-    .addEventListener(
-
+    link.addEventListener(
       "click",
-
       function(){
 
+        const pageId =
+          this.dataset.page;
 
-        stopAutoScroll();
-
-
-        const action =
-        this.dataset.action;
-
+        const target =
+          this.dataset.target;
 
 
-        menuLinks
-        .forEach(
-
+        menuLinks.forEach(
           function(item){
 
-
             item
-            .classList
-            .remove("active");
-
+              .classList
+              .remove("active");
 
           }
-
         );
 
 
-
         this
-        .classList
-        .add("active");
+          .classList
+          .add("active");
 
 
+        hideMenu();
 
-        /*
-        HOME
-        */
-
-        if(
-          action ===
-          "home"
-        ){
-
-
-          showInvitation();
-
-
-          hideMenu();
-
-
-          window
-          .scrollTo(
-            0,
-            0
-          );
-
-
-        }
-
+        showPage(pageId);
 
 
         /*
-        INVITATION DETAILS
+        ALWAYS RESET TO TOP FIRST.
+        THIS PREVENTS ONE PAGE FROM
+        KEEPING ANOTHER PAGE'S
+        SCROLL POSITION.
         */
 
-        if(
-          action ===
-          "invitation"
-        ){
+        window.scrollTo(0,0);
 
 
-          showInvitation();
+        /*
+        INVITATION MENU ITEM
+        SCROLLS TO DATE SECTION.
+        */
 
-
-          hideMenu();
-
+        if(target === "invitationSection"){
 
           setTimeout(
-
             function(){
 
-
               document
-
-              .getElementById(
-                "invitationSection"
-              )
-
-              .scrollIntoView({
-
-                behavior:
-                "smooth",
-
-                block:
-                "start"
-
-              });
-
+                .getElementById(
+                  "invitationSection"
+                )
+                .scrollIntoView({
+                  behavior:"smooth",
+                  block:"start"
+                });
 
             },
-
             100
-
           );
 
-
         }
-
-
-
-        /*
-        LLUVIA DE SOBRES
-        */
-
-        if(
-          action ===
-          "gifts"
-        ){
-
-
-          hideMenu();
-
-
-          showGifts();
-
-
-        }
-
-
-
-        /*
-        RSVP
-        */
-
-        if(
-          action ===
-          "rsvp"
-        ){
-
-
-          hideMenu();
-
-
-          showRSVP();
-
-
-        }
-
 
       }
-
     );
 
-
   }
-
 );
 
 
-
-/* =========================================
+/* ==================================================
    COUNTDOWN
-========================================= */
+================================================== */
 
 const eventDate =
-
-new Date(
-
-  "2026-11-27T17:00:00-06:00"
-
-).getTime();
-
+  new Date(
+    "2026-11-27T17:00:00-06:00"
+  ).getTime();
 
 
 function updateCountdown(){
 
-
   let distance =
-
-  Math.max(
-
-    0,
-
-    eventDate -
-    Date.now()
-
-  );
-
+    Math.max(
+      0,
+      eventDate - Date.now()
+    );
 
 
   const days =
-
-  Math.floor(
-
-    distance /
-    86400000
-
-  );
+    Math.floor(
+      distance / 86400000
+    );
 
 
   distance =
-  distance %
-  86400000;
-
+    distance % 86400000;
 
 
   const hours =
-
-  Math.floor(
-
-    distance /
-    3600000
-
-  );
+    Math.floor(
+      distance / 3600000
+    );
 
 
   distance =
-  distance %
-  3600000;
-
+    distance % 3600000;
 
 
   const minutes =
-
-  Math.floor(
-
-    distance /
-    60000
-
-  );
+    Math.floor(
+      distance / 60000
+    );
 
 
   distance =
-  distance %
-  60000;
-
+    distance % 60000;
 
 
   const seconds =
-
-  Math.floor(
-
-    distance /
-    1000
-
-  );
-
+    Math.floor(
+      distance / 1000
+    );
 
 
   document
-  .getElementById("days")
-  .textContent =
-
-  String(days)
-  .padStart(
-    2,
-    "0"
-  );
-
+    .getElementById("days")
+    .textContent =
+    String(days)
+      .padStart(2,"0");
 
 
   document
-  .getElementById("hours")
-  .textContent =
-
-  String(hours)
-  .padStart(
-    2,
-    "0"
-  );
-
+    .getElementById("hours")
+    .textContent =
+    String(hours)
+      .padStart(2,"0");
 
 
   document
-  .getElementById("minutes")
-  .textContent =
-
-  String(minutes)
-  .padStart(
-    2,
-    "0"
-  );
-
+    .getElementById("minutes")
+    .textContent =
+    String(minutes)
+      .padStart(2,"0");
 
 
   document
-  .getElementById("seconds")
-  .textContent =
-
-  String(seconds)
-  .padStart(
-    2,
-    "0"
-  );
-
+    .getElementById("seconds")
+    .textContent =
+    String(seconds)
+      .padStart(2,"0");
 
 }
-
 
 
 updateCountdown();
 
-
 setInterval(
-
   updateCountdown,
-
   1000
-
 );
 
 
-
-/* =========================================
+/* ==================================================
    AUTO SCROLL
-========================================= */
+================================================== */
 
-let scrollTimer =
-null;
+let scrollTimer = null;
 
-
-let autoScrolling =
-false;
-
+let autoScrolling = false;
 
 
 function startAutoScroll(){
 
-
   /*
-  Only the invitation page
-  can auto-scroll.
+  AUTO SCROLL ONLY WORKS
+  ON THE INVITATION PAGE.
   */
 
-
   if(
-
     !invitationView
-    .classList
-    .contains("active")
-
+      .classList
+      .contains("active")
   ){
-
-
     return;
-
-
   }
 
 
-
-  if(
-    autoScrolling
-  ){
-
-
+  if(autoScrolling){
     return;
-
-
   }
 
 
-
-  autoScrolling =
-  true;
-
+  autoScrolling = true;
 
 
   scrollTimer =
+    setInterval(
+      function(){
 
-  setInterval(
+        /*
+        STOP IF USER SWITCHED PAGES
+        */
 
-    function(){
+        if(
+          !invitationView
+            .classList
+            .contains("active")
+        ){
 
+          stopAutoScroll();
 
-      /*
-      If guest switches pages,
-      auto-scroll immediately ends.
-      */
+          return;
 
-
-      if(
-
-        !invitationView
-        .classList
-        .contains("active")
-
-      ){
-
-
-        stopAutoScroll();
+        }
 
 
-        return;
+        const bottom =
+          window.scrollY +
+          window.innerHeight;
 
 
-      }
+        const pageHeight =
+          document
+            .documentElement
+            .scrollHeight;
 
 
+        if(
+          bottom >=
+          pageHeight - 5
+        ){
 
-      const bottom =
+          stopAutoScroll();
 
-      window.scrollY +
-      window.innerHeight;
+          return;
 
-
-
-      const pageHeight =
-
-      document
-      .documentElement
-      .scrollHeight;
+        }
 
 
+        window.scrollBy(
+          0,
+          1
+        );
 
-      if(
-
-        bottom >=
-        pageHeight - 5
-
-      ){
-
-
-        stopAutoScroll();
-
-
-        return;
-
-
-      }
-
-
-
-      window
-      .scrollBy(
-
-        0,
-
-        1
-
-      );
-
-
-    },
-
-    28
-
-  );
-
+      },
+      28
+    );
 
 }
 
 
-
 function stopAutoScroll(){
 
-
-  autoScrolling =
-  false;
+  autoScrolling = false;
 
 
-
-  if(
-    scrollTimer
-  ){
-
+  if(scrollTimer){
 
     clearInterval(
       scrollTimer
     );
 
-
-    scrollTimer =
-    null;
-
+    scrollTimer = null;
 
   }
-
 
 }
 
 
-
 /*
-If they start scrolling themselves,
-automatic scrolling stops.
+USER TOUCHING THE PAGE
+STOPS AUTO SCROLL
 */
 
-window
-.addEventListener(
-
+window.addEventListener(
   "touchmove",
-
   stopAutoScroll,
-
   {
     passive:true
   }
-
 );
 
 
-window
-.addEventListener(
-
+window.addEventListener(
   "wheel",
-
   stopAutoScroll,
-
   {
     passive:true
   }
-
 );
 
 
-
-/* =========================================
-   COPY ZELLE NUMBER
-========================================= */
-
-const copyZelle =
-
-document
-.getElementById(
-  "copyZelle"
+window.addEventListener(
+  "keydown",
+  stopAutoScroll
 );
-
-
-const copyNotice =
-
-document
-.getElementById(
-  "copyNotice"
-);
-
-
-
-copyZelle
-.addEventListener(
-
-  "click",
-
-  async function(){
-
-
-    const number =
-    "4694717515";
-
-
-    try{
-
-
-      await navigator
-      .clipboard
-      .writeText(
-        number
-      );
-
-
-      copyNotice
-      .textContent =
-
-      "Número copiado ✓";
-
-
-    }
-
-
-    catch(error){
-
-
-      copyNotice
-      .textContent =
-
-      "Zelle: (469) 471-7515";
-
-
-    }
-
-
-
-    setTimeout(
-
-      function(){
-
-
-        copyNotice
-        .textContent =
-        "";
-
-
-      },
-
-      3000
-
-    );
-
-
-  }
-
-);
-
 
 </script>
 
 
 </body>
-
 </html>
