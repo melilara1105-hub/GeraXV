@@ -7,12 +7,12 @@
 <title>Mis Quince</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -22,15 +22,19 @@ body {
 }
 
 /* OPENING SCREEN */
+
 #opening {
   position: fixed;
   inset: 0;
   background: #ead4b8;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  z-index: 999;
+
+  z-index: 9999;
+
   transition: opacity 1s ease;
 }
 
@@ -42,38 +46,72 @@ body {
 }
 
 /* ENVELOPE */
+
 .envelope {
+  position: relative;
   width: 330px;
   height: 215px;
-  position: relative;
-  cursor: pointer;
   perspective: 1200px;
 }
 
+/* CLICK BUTTON */
+
+#openButton {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* BACK */
+
 .back {
   position: absolute;
   inset: 0;
+
   background: #cda06c;
+
   border-radius: 5px;
+
   box-shadow: 0 15px 30px rgba(0,0,0,.18);
+
+  z-index: 1;
 }
 
 /* CARD */
+
 .card {
   position: absolute;
+
   width: 280px;
   height: 175px;
+
   left: 25px;
   bottom: 15px;
+
   background: #fffaf4;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+
   z-index: 2;
-  transition: transform 1.4s cubic-bezier(.22,.61,.36,1);
+
   box-shadow: 0 5px 15px rgba(0,0,0,.15);
+
+  transition:
+    transform 1.4s cubic-bezier(.22,.61,.36,1),
+    opacity 1s ease;
 }
 
 .card .small {
@@ -83,78 +121,110 @@ body {
 }
 
 .card .title {
+  margin-top: 8px;
+
+  color: #54280f;
+
   font-size: 35px;
   font-style: italic;
-  color: #54280f;
-  margin-top: 8px;
 }
 
 /* ENVELOPE FRONT */
+
 .left {
   position: absolute;
-  bottom: 0;
+
   left: 0;
+  bottom: 0;
+
   border-top: 108px solid transparent;
   border-bottom: 107px solid #c99a63;
   border-right: 165px solid transparent;
+
   z-index: 4;
 }
 
 .right {
   position: absolute;
-  bottom: 0;
+
   right: 0;
+  bottom: 0;
+
   border-top: 108px solid transparent;
   border-bottom: 107px solid #bf8e59;
   border-left: 165px solid transparent;
+
   z-index: 4;
 }
 
 .bottom {
   position: absolute;
-  bottom: 0;
+
   left: 0;
+  bottom: 0;
+
   border-left: 165px solid transparent;
   border-right: 165px solid transparent;
   border-bottom: 125px solid #d3a872;
+
   z-index: 5;
 }
 
 /* FLAP */
+
 .flap {
   position: absolute;
+
   top: 0;
   left: 0;
+
   border-left: 165px solid transparent;
   border-right: 165px solid transparent;
   border-top: 125px solid #dcb585;
-  transform-origin: top;
+
+  transform-origin: top center;
+
   transition: transform .9s ease;
+
   z-index: 6;
 }
 
-/* SEAL */
+/* WAX SEAL */
+
 .seal {
   position: absolute;
+
   width: 52px;
   height: 52px;
+
   left: 139px;
   top: 82px;
+
   border-radius: 50%;
+
   background: #6b3517;
   color: #f4ddbd;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 23px;
+
   z-index: 8;
+
   box-shadow: 0 3px 7px rgba(0,0,0,.25);
-  transition: opacity .4s ease;
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
 }
 
-/* OPEN STATE */
+/* OPEN ANIMATION */
+
 .envelope.open .seal {
   opacity: 0;
+  transform: scale(.5);
 }
 
 .envelope.open .flap {
@@ -166,13 +236,16 @@ body {
   transform: translateY(-155px);
 }
 
-/* INVITATION */
+/* CANVA INVITATION */
+
 #invitation {
-  opacity: 0;
-  visibility: hidden;
   width: 100%;
   min-height: 100vh;
-  transition: opacity 1.3s ease;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 1s ease;
 }
 
 #invitation.show {
@@ -183,87 +256,174 @@ body {
 iframe {
   width: 100%;
   height: 100vh;
-  border: none;
+
   display: block;
+
+  border: none;
 }
+
 </style>
 </head>
 
 <body>
 
+
 <audio id="music" loop preload="auto">
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+
 <div id="opening">
 
-  <div class="tap">TOCA PARA ABRIR</div>
+  <div class="tap">
+    TOCA PARA ABRIR
+  </div>
+
 
   <div class="envelope" id="envelope">
 
     <div class="back"></div>
 
+
     <div class="card">
-      <div class="small">MIS QUINCE</div>
-      <div class="title">Cielito Lindo</div>
+
+      <div class="small">
+        MIS QUINCE
+      </div>
+
+      <div class="title">
+        Cielito Lindo
+      </div>
+
     </div>
 
+
     <div class="left"></div>
+
     <div class="right"></div>
+
     <div class="bottom"></div>
 
     <div class="flap"></div>
 
-    <div class="seal">15</div>
+    <div class="seal">
+      15
+    </div>
+
+
+    <!-- THIS BUTTON COVERS THE WHOLE ENVELOPE -->
+
+    <button
+      id="openButton"
+      type="button"
+      aria-label="Abrir invitación">
+    </button>
+
 
   </div>
+
 </div>
 
+
+
 <div id="invitation">
+
   <iframe
     src="https://tolindo.my.canva.site/"
     loading="eager">
   </iframe>
+
 </div>
 
+
+
 <script>
-const envelope = document.getElementById("envelope");
-const opening = document.getElementById("opening");
-const invitation = document.getElementById("invitation");
-const music = document.getElementById("music");
+
+const envelope =
+  document.getElementById("envelope");
+
+const openButton =
+  document.getElementById("openButton");
+
+const opening =
+  document.getElementById("opening");
+
+const invitation =
+  document.getElementById("invitation");
+
+const music =
+  document.getElementById("music");
+
 
 let opened = false;
 
-envelope.addEventListener("click", function () {
 
-  if (opened) return;
+function openInvitation() {
+
+  if (opened) {
+    return;
+  }
+
   opened = true;
 
-  /* OPEN ENVELOPE FIRST */
+
+  /* OPEN THE ENVELOPE */
+
   envelope.classList.add("open");
 
-  /* TRY MUSIC, BUT DON'T WAIT FOR IT */
-  music.play().catch(function () {
-    console.log("Music file is not ready yet.");
+
+  /* REMOVE BUTTON SO IT CAN'T BE CLICKED TWICE */
+
+  openButton.style.pointerEvents = "none";
+
+
+  /* TRY TO PLAY MUSIC */
+
+  music.play().catch(function() {
+
+    console.log("Song has not been uploaded yet.");
+
   });
 
-  /* SHOW CANVA INVITATION */
-  setTimeout(function () {
-    invitation.classList.add("show");
-  }, 1500);
 
-  /* FADE AWAY ENVELOPE */
-  setTimeout(function () {
+  /* SHOW INVITATION */
+
+  setTimeout(function() {
+
+    invitation.classList.add("show");
+
+  }, 1400);
+
+
+  /* FADE OUT ENVELOPE */
+
+  setTimeout(function() {
+
     opening.style.opacity = "0";
 
-    setTimeout(function () {
-      opening.style.display = "none";
-    }, 1000);
+  }, 2300);
 
-  }, 2400);
 
-});
+  /* REMOVE OPENING SCREEN */
+
+  setTimeout(function() {
+
+    opening.style.display = "none";
+
+  }, 3300);
+
+}
+
+
+/* REAL BUTTON CLICK */
+
+openButton.addEventListener(
+  "click",
+  openInvitation
+);
+
 </script>
+
 
 </body>
 </html>
